@@ -20,6 +20,7 @@ const BottomTabNavigator = () => {
             screenOptions={({route}) => ({
                 tabBarIcon: ({focused, color, size}) => {
                     var iconName;
+                    var iconName2;
                     switch(route.name){
                         case "Calendar":
                             //<ion-icon name="calendar-clear"></ion-icon>
@@ -32,13 +33,14 @@ const BottomTabNavigator = () => {
                             iconName = focused? 'happy':'happy-outline';
                             break;
                         case "Day/Night":
-                            // size = size/2;
-                            // return(
-                            //     <View>
-                            //         <Ionicons name = {'sunny-outline'} size = {size} color={color}/>
-                            //         <Ionicons name = {'moon-outline'} size = {size} color={color}/>
-                            //     </View>
-                            // );
+                            iconName = focused? 'sunny':'sunny-outline';
+                            iconName2 = focused? 'moon':'moon-outline';
+                            return(
+                                <View style={{flexDirection: 'row',}}>
+                                    <Ionicons name = {iconName} size = {size} color={color}/>
+                                    <Ionicons name = {iconName2} size = {size} color={color}/>
+                                </View>
+                            );
                             iconName = focused ? 'sunny':'sunny-outline';
                             break;
                     }
@@ -47,12 +49,13 @@ const BottomTabNavigator = () => {
             })}
             tabBarOptions={{
                 //activeBackgroundColor: '#bdb6ea',
-                activeTintColor:'#bdb6ea',
-                inactiveTintColor:'grey',
+                //activeTintColor:'#bdb6ea',
+                activeTintColor:'dark grey',
+                //inactiveTintColor:'grey',  
                 showLabel: false,
-                // tabStyle:{
-                //     backgroundColor: '#bdb6ea',
-                // },
+                tabStyle:{
+                    backgroundColor: '#bdb6ea',
+                },
                 //style:{backgroundColor: '#bdb6ea'}
 
 

@@ -10,6 +10,7 @@ import ListPick from '../screens/ListP/ListPick';
 import NewP from '../screens/ListP/NewP';
 import UsedP from '../screens/ListP/UsedP';
 import Calendar from '../screens/Calendar';
+import CustomStack from './CustomStack';
 
 const Stack = createStackNavigator();
 
