@@ -5,7 +5,7 @@ import Home from '../screens/Home';
 import Detail from '../screens/Detail';
 import Contact from '../screens/Contact';
 import SkinMood from '../screens/SkinMood';
-import Pick from '../screens/DayAndNight/Pick';
+import RoutinePick from '../screens/DayAndNight/RoutinePick';
 import ListPick from '../screens/ListP/ListPick';
 import NewP from '../screens/ListP/NewP';
 import UsedP from '../screens/ListP/UsedP';
@@ -39,7 +39,7 @@ const ContactStackNavigator = () => {
 const DayAndNightStackNavigator = () => {
     return (
         <Stack.Navigator screenOptions = {screenOptionStyle}>
-            <Stack.Screen name = "Pick" component = {Pick}/>
+            <Stack.Screen name = "RoutinePick" component = {RoutinePick}/>
         </Stack.Navigator>
     );
 }

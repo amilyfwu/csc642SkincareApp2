@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-const Pick = () => {
-
+const RoutinePick = ({navigation}) => {
+    //Pick Routine
+    //onPress = {()=>{navigation.navigate('Overview',{routine:"Night"})}}
     return(
         <View style = {styles.container}>
-            <Button title = "☀️"/>
+            <Button title = "☀️"  />
             <Button title = "🌙"/>
             <Button title = "☀️🌙"/>
         </View>
@@ -21,4 +22,4 @@ const styles = StyleSheet.create({
     },
 }); 
 
-export default Pick;
+export default RoutinePick;
