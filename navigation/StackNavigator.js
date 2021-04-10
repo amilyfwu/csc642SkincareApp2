@@ -6,6 +6,10 @@ import Detail from '../screens/Detail';
 import Contact from '../screens/Contact';
 import SkinMood from '../screens/SkinMood';
 import Pick from '../screens/DayAndNight/Pick';
+import ListPick from '../screens/ListP/ListPick';
+import NewP from '../screens/ListP/NewP';
+import UsedP from '../screens/ListP/UsedP';
+import Calendar from '../screens/Calendar';
 
 const Stack = createStackNavigator();
 
@@ -19,7 +23,7 @@ const MainStackNavigator = () => {
     return(
         <Stack.Navigator screenOptions = {screenOptionStyle}>
             <Stack.Screen name = "Home" component= {Home}/>
-            <Stack.Screen name = "Detail" component= {Detail}/>
+            <Stack.Screen name = "Detail" component= {Detail} />
         </Stack.Navigator>
     );
 }
@@ -46,10 +50,20 @@ const SkinMoodStackNavigator = () => {
         </Stack.Navigator>
     );
 }
-const Tab3StackNavigator = () => {
-    
+const ListStackNavigator = () => {
+    return (
+        <Stack.Navigator screenOptions = {screenOptionStyle}>
+            <Stack.Screen name = "ListPick" component = {ListPick}/> 
+            <Stack.Screen name = "NewP" component = {NewP}/>
+            <Stack.Screen name = "UsedP" component = {UsedP}/> 
+        </Stack.Navigator>
+    );
 }
-const Tab4StackNavigator = () => {
-    
+const CalendarStackNavigator = () => {
+    return(
+        <Stack.Navigator screenOptions = {screenOptionStyle}>
+            <Stack.Screen name = "Calendar" component = {Calendar}/>
+        </Stack.Navigator>
+    );
 }
-export {MainStackNavigator,ContactStackNavigator, DayAndNightStackNavigator, SkinMoodStackNavigator};
+export {MainStackNavigator,ContactStackNavigator, DayAndNightStackNavigator, SkinMoodStackNavigator, ListStackNavigator, CalendarStackNavigator};
