@@ -6,9 +6,18 @@ const RoutinePick = ({navigation}) => {
     //onPress = {()=>{navigation.navigate('Overview',{routine:"Night"})}}
     return(
         <View style = {styles.container}>
-            <Button title = "☀️"  />
-            <Button title = "🌙"/>
-            <Button title = "☀️🌙"/>
+            <Button
+                title = "☀️"
+                onPress = {()=>{navigation.push("Overview",{routine: "Day"})}}
+            />
+            <Button 
+                title = "🌙"
+                onPress = {()=>{navigation.push("Overview",{routine: "Night"})}}
+            />
+            <Button 
+                title = "☀️🌙"
+                onPress = {()=>{navigation.push("Overview",{routine: "Both"})}}
+            />
         </View>
     );
 };

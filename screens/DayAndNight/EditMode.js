@@ -10,13 +10,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
-const EditMode = () => {
+const EditMode = ({navigation, route}) => {
+    console.log(route.params);
     //save
     //cancel - go back or navigate to product detail
     return(
         <View style = {styles.container}>
             <Text>This is Edit Mode Screen</Text>
-            <TextInput
+            {/* <TextInput
                 style = {styles.TextBorder} 
                 placeholder = "Enter here" 
                 maxLength = {20} 
@@ -25,8 +26,9 @@ const EditMode = () => {
                 defaultValue = "blah"
                 multiline = {true}
                 numberOfLines = {5}
-
-                ></TextInput>
+                value={"state val"}
+            /> */}
+            <Button title = "Save" onPress = {() => {navigation.goBack()}}></Button>
         </View>
     );
 };

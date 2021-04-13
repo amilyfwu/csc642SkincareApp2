@@ -11,7 +11,9 @@ import NewP from '../screens/ListP/NewP';
 import UsedP from '../screens/ListP/UsedP';
 import Calendar from '../screens/Calendar';
 import CustomStack from './CustomStack';
-
+import Overview from '../screens/DayAndNight/Overview';
+import ProductDetail from '../screens/DayAndNight/ProductDetail';
+import EditMode from '../screens/DayAndNight/EditMode';
 const Stack = createStackNavigator();
 
 const screenOptionStyle = {
@@ -40,7 +42,28 @@ const ContactStackNavigator = () => {
 const DayAndNightStackNavigator = () => {
     return (
         <Stack.Navigator screenOptions = {screenOptionStyle}>
-            <Stack.Screen name = "RoutinePick" component = {RoutinePick}/>
+            <Stack.Screen 
+                name = "RoutinePick" 
+                component = {RoutinePick}
+                options = {()=>({
+                    title: "Pick Routine",
+                })}
+            />
+            <Stack.Screen 
+                name = "Overview"  
+                component = {Overview} 
+                options = {({route})=>({
+                    title: route.params.routine,
+                })}
+            />
+            <Stack.Screen 
+                name = "Product Detail"  
+                component = {ProductDetail} 
+            />
+            <Stack.Screen
+                name = "Edit Mode"
+                component = {EditMode}
+            />
         </Stack.Navigator>
     );
 }
