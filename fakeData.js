@@ -20,5 +20,16 @@ export const fakeData = [
         day: true,
         night:false,
         dateEntered: "04/12/21",
-    }
+    },
+    {
+        title: "Dermatory Cica Cream",
+        type: "cream",
+        price: 14.99,
+        status: "MRP",
+        rating: 8,
+        comment: "sfgfhsdfdsdfjsakdjfgdfgsdfdfskfjsdv",
+        day: false,
+        night: true,
+        dateEntered: "04/11/21",
+    },
 ];

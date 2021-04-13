@@ -22,6 +22,7 @@ const Overview = ({navigation,route}) => {
                 <FlatList
                     data = {fakeData}
                     renderItem = {renderItem}
+                    keyExtractor = {(item,i) => item.title + i}
                 />
                 {/* {fakeData.map((value,i)=>{
                     return (

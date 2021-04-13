@@ -8,15 +8,16 @@
 //Input cannot be blank except for Comment
 
 import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { Text, View, Button, TextInput } from 'react-native';
+import {styles} from '../../style/styles' 
 
 const EditMode = ({navigation, route}) => {
-    console.log(route.params);
+    //console.log(route.params);
     //save
     //cancel - go back or navigate to product detail
+    //use Array function to sort or update the values
     return(
         <View style = {styles.container}>
-            <Text>This is Edit Mode Screen</Text>
             {/* <TextInput
                 style = {styles.TextBorder} 
                 placeholder = "Enter here" 
@@ -28,24 +29,16 @@ const EditMode = ({navigation, route}) => {
                 numberOfLines = {5}
                 value={"state val"}
             /> */}
-            <Button title = "Save" onPress = {() => {navigation.goBack()}}></Button>
+            
+            <TextInput style = {styles.textBorder} editable = {true} defaultValue = {route.params.title}></TextInput>
+            <TextInput style = {styles.textBorder} editable = {true} defaultValue = {route.params.type}></TextInput>
+            <TextInput style = {styles.textBorder} editable = {true} defaultValue = {route.params.price + ''}></TextInput>
+            <TextInput style = {styles.textBorder} editable = {true} defaultValue = {route.params.status}></TextInput>
+            <TextInput style = {styles.textBorder} editable = {true} defaultValue = {route.params.rating + ''}></TextInput>
+            <TextInput style = {styles.textBorder} editable = {true} defaultValue = {route.params.comment}></TextInput>
+            <Button title = "Save" onPress = {() => {navigation.goBack()}}/>  
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    textBorder:{
-        borderColor:'grey',
-        borderWidth: 2,
-        padding: 10,
-        width:'80%',
-    }
-}); 
 
 export default EditMode;
