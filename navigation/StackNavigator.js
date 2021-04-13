@@ -1,4 +1,6 @@
 import React from 'react';
+import {Text, TouchableOpacity } from 'react-native';
+
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Home from '../screens/Home';
@@ -10,10 +12,10 @@ import ListPick from '../screens/ListP/ListPick';
 import NewP from '../screens/ListP/NewP';
 import UsedP from '../screens/ListP/UsedP';
 import Calendar from '../screens/Calendar';
-import CustomStack from './CustomStack';
 import Overview from '../screens/DayAndNight/Overview';
 import ProductDetail from '../screens/DayAndNight/ProductDetail';
 import EditMode from '../screens/DayAndNight/EditMode';
+import { Ionicons } from '@expo/vector-icons';
 const Stack = createStackNavigator();
 
 const screenOptionStyle = {
@@ -63,6 +65,17 @@ const DayAndNightStackNavigator = () => {
             <Stack.Screen
                 name = "Edit Mode"
                 component = {EditMode}
+                //trying to add icon on the top right
+                // options = {(prop) => ({
+                //     headerRight: () => {
+                //         console.log(prop)
+                //         return (
+                //             <TouchableOpacity>
+                //                <Ionicons name = "save-outline" size = {12} color = "black"/>
+                //             </TouchableOpacity>
+                //         );
+                //     },
+                // })}
             />
         </Stack.Navigator>
     );
