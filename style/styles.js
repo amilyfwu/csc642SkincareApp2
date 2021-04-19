@@ -12,6 +12,10 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         padding: 10,
         width:'80%',
+    },
+    buttonSpace: {
+      margin:'1%',
+      // padding: '10%',
     }
 }); 
 

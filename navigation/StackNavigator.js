@@ -16,6 +16,7 @@ import Overview from '../screens/DayAndNight/Overview';
 import ProductDetail from '../screens/DayAndNight/ProductDetail';
 import EditMode from '../screens/DayAndNight/EditMode';
 import { Ionicons } from '@expo/vector-icons';
+import AddMode from '../screens/DayAndNight/AddMode';
 const Stack = createStackNavigator();
 
 const screenOptionStyle = {
@@ -56,6 +57,13 @@ const DayAndNightStackNavigator = () => {
                 component = {Overview} 
                 options = {({route})=>({
                     title: route.params.routine,
+                })}
+            />
+            <Stack.Screen
+                name = "Add Mode"
+                component = {AddMode}
+                options = {()=>({
+                    title: "Add",
                 })}
             />
             <Stack.Screen 
