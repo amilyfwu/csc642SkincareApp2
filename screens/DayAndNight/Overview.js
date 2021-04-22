@@ -10,17 +10,18 @@ import { useIsFocused } from '@react-navigation/core';
 
 
 const Overview = ({navigation,route}) => {
-    //set the add mode and remove mode components
-    const [add,setAdd] = React.useState(false);
+    //set remove mode component
     const [remove,setRemove] = React.useState(false);
+    //grab data
     const items = useSelector(state => state.dataReducer.items);
     const isFocused = useIsFocused();
     const dispatch = useDispatch();
+
     React.useEffect(() => {
-        dispatch(setItems(fakeData));
         console.log("this is fake data", fakeData);
         console.log("this is items", items);
-    },[isFocused]);
+        dispatch(setItems(fakeData));
+    },[]);//isFocused was here, I dont think it affect the items update
     
     const renderItem = ({item,index,separators}) => {
         //console.log(index,separators)
@@ -50,8 +51,8 @@ const Overview = ({navigation,route}) => {
                         console.log('delete item ' + item.title)
                         //finds the item
                         const findItem =  fakeData.find(element => {
-                            if(element.title === item.title){
-                                return element.title;
+                            if(element.id === item.id){
+                                return element.id;
                             }
                         })
                         const deleteItem = fakeData.indexOf(findItem);

@@ -1,6 +1,6 @@
 import React from 'react';
 import {styles} from '../../style/styles' 
-import { View, Button, TextInput } from 'react-native';
+import { View, Button, TextInput, Touchable, TouchableOpacity, Switch,Text } from 'react-native';
 import { fakeData } from '../../fakeData';
 
 
@@ -13,9 +13,12 @@ const AddMode = ({navigation, route}) => {
     const [comment , setComment] = React.useState('');
     const [day , setDay] = React.useState(false);
     const [night , setNight] = React.useState(false);
-    const [dateEntered , setDateEntered] = React.useState('');
 
     const addItem = () => {
+        const tempId = (Date.now().toString(35) + Math.random().toString(36).substring(2)).substring(7, 18);
+        const tempDate = Date.now();
+        const today = new Date(tempDate);
+        console.log(tempId, today.toLocaleDateString());
         const data = {
             'title': title,
             'type': type,
@@ -25,11 +28,12 @@ const AddMode = ({navigation, route}) => {
             'comment': comment,
             'day': day,
             'night': night,
-            'dateEntered': dateEntered,
-            'id': id,
+            'dateEntered': today.toLocaleDateString(),
+            'id': tempId,
         };
-        //fakeData.push(data);
-    }
+        console.log(data);
+        fakeData.push(data);
+    };
 
     return(
         <View>
@@ -70,7 +74,11 @@ const AddMode = ({navigation, route}) => {
                 value = {comment} 
                 onChangeText = {(text)=> (setComment(text))}
             />
-            <Button title = "Save" onPress = {() => {addItem}}/> 
+            <Text>Day{day+''}</Text>
+            <Switch onValueChange = {(val)=>(setDay(val))} value = {day} />
+            <Text>Night</Text>
+            <Switch onValueChange = {(val)=>(setNight(val))} value = {night}/>
+            <Button title = "Save" onPress = {() => {addItem()}}/> 
             <Button title = "Cancel" onPress = {() => {navigation.goBack()}}/> 
         </View>
     );

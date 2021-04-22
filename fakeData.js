@@ -9,7 +9,7 @@ export const fakeData = [
         day: true,
         night:true,
         dateEntered: "04/12/21",
-        id: 0,
+        id: "34gerr32rvb",
     },
     {
         title: "Rovectin Treatment Lotion",
@@ -21,7 +21,7 @@ export const fakeData = [
         day: true,
         night:true,
         dateEntered: "04/12/21",
-        id: 1,
+        id: "fggrfi353f2",
     },
     {
         title: "Isntree Hylauronic Acid Aqua Gel Cream",
@@ -33,7 +33,7 @@ export const fakeData = [
         day: true,
         night:false,
         dateEntered: "04/12/21",
-        id: 2,
+        id: "3694berf23f",
 
     },
     {
@@ -46,7 +46,7 @@ export const fakeData = [
         day: false,
         night: true,
         dateEntered: "04/11/21",
-        id: 3,
+        id: "34vff3e432d",
     },
     {
         title: "Real Barrier CicaRelief Toner",
@@ -58,7 +58,7 @@ export const fakeData = [
         day: true,
         night: true,
         dateEntered: "04/11/21",
-        id: 4,
+        id: "543gfdvvds3",
     },
     {
         title: "Etude House SoonJung 5.5 foam cleanser",
@@ -70,7 +70,7 @@ export const fakeData = [
         day: true,
         night: false,
         dateEntered: "04/11/21",
-        id: 5,
+        id: "42fvsdf3ff4",
     },
     {
         title: "Scinic Avocado Foam Cleanser",
@@ -82,7 +82,7 @@ export const fakeData = [
         day: false,
         night: true,
         dateEntered: "04/11/21",
-        id: 6,
+        id: "6hbrrgerf39",
     },
     {
         title: "Skin1004 Madagascar Centella Toning Toner",
@@ -94,7 +94,7 @@ export const fakeData = [
         day: true,
         night: true,
         dateEntered: "04/11/21",
-        id: 7,
+        id: "bjhmfgkfd34",
     },
 
 ];

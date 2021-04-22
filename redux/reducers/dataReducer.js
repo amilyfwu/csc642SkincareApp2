@@ -9,7 +9,7 @@ const initState = () => ({
     day: false,
     night: false,
     dateEntered: '',
-    id: null,
+    id: '',
 });
 
 const dataReducer = (state = initState(), action) => {

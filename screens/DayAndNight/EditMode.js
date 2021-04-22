@@ -60,9 +60,9 @@ const EditMode = ({navigation, route}) => {
         //splice data to update
         //finds the item
         const findItem =  fakeData.find(element => {
-            if(element.title === title){
+            if(element.id === id){
                 console.log(element);
-                return element.title;
+                return element.id;
             }
         })
         const replaceItem = fakeData.indexOf(findItem);
