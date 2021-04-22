@@ -4,21 +4,36 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, FlatList,ScrollView } from 'react-native';
 import {fakeData} from "../../fakeData";
 import { styles } from '../../style/styles';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAll, setItems } from '../../redux/actions/dataAction';
+import { useIsFocused } from '@react-navigation/core';
+
 
 const Overview = ({navigation,route}) => {
     //set the add mode and remove mode components
     const [add,setAdd] = React.useState(false);
     const [remove,setRemove] = React.useState(false);
-
+    const items = useSelector(state => state.dataReducer.items);
+    const isFocused = useIsFocused();
+    const dispatch = useDispatch();
+    React.useEffect(() => {
+        dispatch(setItems(fakeData));
+        console.log("this is fake data", fakeData);
+        console.log("this is items", items);
+    },[isFocused]);
+    
     const renderItem = ({item,index,separators}) => {
         //console.log(index,separators)
-        console.log("this is going to product detial");
+        console.log("this is going to product detail");
         return (
             <View style = {styles.buttonSpace}>
                 <Button 
                     key = {index} 
                     title = {item.title}
-                    onPress = {() => (navigation.push("Product Detail", item))}
+                    onPress = {() => {
+                        dispatch(setAll(item.title, item.type, item.price, item.status, item.rating, item.comment, item.day, item.night, item.dateEntered, item.id));
+                        navigation.push("Product Detail", item);
+                    }}
                 />
             </View>
         );
@@ -75,16 +90,16 @@ const Overview = ({navigation,route}) => {
                         </View>
                     );
                 })} */}
-                {!remove && (
+                {!remove && isFocused && (
                     <FlatList
-                        data = {fakeData}
+                        data = {items}
                         renderItem = {renderItem}
                         keyExtractor = {(item,i) => item.title + i}
                     />
                 )}
-                {remove && (
+                {remove && isFocused && (
                     <FlatList
-                        data = {fakeData}
+                        data = {items}
                         renderItem = {renderItem2}
                         keyExtractor = {(item,i) => item.title + i}
                     />

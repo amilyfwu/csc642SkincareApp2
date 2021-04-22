@@ -1,9 +1,10 @@
 import React from 'react';
 import {styles} from '../../style/styles' 
 import { View, Button, TextInput } from 'react-native';
+import { fakeData } from '../../fakeData';
 
 
-const AddMode = () => {
+const AddMode = ({navigation, route}) => {
     const [title , setTitle] = React.useState('');
     const [type , setType] = React.useState('');
     const [price , setPrice] = React.useState(0);
@@ -13,6 +14,22 @@ const AddMode = () => {
     const [day , setDay] = React.useState(false);
     const [night , setNight] = React.useState(false);
     const [dateEntered , setDateEntered] = React.useState('');
+
+    const addItem = () => {
+        const data = {
+            'title': title,
+            'type': type,
+            'price': parseFloat(price),
+            'status': status,
+            'rating': parseInt(rating),
+            'comment': comment,
+            'day': day,
+            'night': night,
+            'dateEntered': dateEntered,
+            'id': id,
+        };
+        //fakeData.push(data);
+    }
 
     return(
         <View>
@@ -53,8 +70,8 @@ const AddMode = () => {
                 value = {comment} 
                 onChangeText = {(text)=> (setComment(text))}
             />
-            <Button title = "Save" onPress = {() => {}}/> 
-            <Button title = "Cancel" onPress = {() => {}}/> 
+            <Button title = "Save" onPress = {() => {addItem}}/> 
+            <Button title = "Cancel" onPress = {() => {navigation.goBack()}}/> 
         </View>
     );
 }
