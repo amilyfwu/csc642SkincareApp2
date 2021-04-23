@@ -42,37 +42,45 @@ const AddMode = ({navigation, route}) => {
                 editable = {true} 
                 value = {title} 
                 onChangeText = {(text)=> (setTitle(text))}
+                maxLength = {30}
             />
             <TextInput 
                 style = {styles.textBorder} 
                 editable = {true} 
                 value = {type} 
                 onChangeText = {(text)=> (setType(text))}
+                maxLength = {12}
             />
             <TextInput 
                 style = {styles.textBorder} 
                 editable = {true} 
-                value = {price} 
+                value = {price + ''} 
                 onChangeText = {(text)=> (setPrice(text))}
+                keyboardType = "numeric"
+                maxLength = {7}
             />
             <TextInput 
                 style = {styles.textBorder} 
                 editable = {true} 
                 value = {status} 
                 onChangeText = {(text)=> (setStatus(text))}
+                maxLength = {4}
             />
             <TextInput 
                 style = {styles.textBorder} 
                 editable = {true} 
-                value = {rating} 
+                value = {rating + ''} 
                 onChangeText = {(text)=> (setRating(text))}
-                
+                keyboardType = "number-pad"
+                maxLength = {2}
             />
             <TextInput 
                 style = {styles.textBorder} 
                 editable = {true} 
                 value = {comment} 
                 onChangeText = {(text)=> (setComment(text))}
+                multiline = {true}
+                numberOfLines = {10}
             />
             <Text>Day{day+''}</Text>
             <Switch onValueChange = {(val)=>(setDay(val))} value = {day} />

@@ -61,14 +61,14 @@ const EditMode = ({navigation, route}) => {
         //finds the item
         const findItem =  fakeData.find(element => {
             if(element.id === id){
-                console.log(element);
+                //console.log(element);
                 return element.id;
             }
         })
         const replaceItem = fakeData.indexOf(findItem);
-        console.log(replaceItem);
+        //console.log(replaceItem);
         fakeData.splice(replaceItem, 1, updateData);
-        console.log("Updated Data:", fakeData);
+        //console.log("Updated Data:", fakeData);
     }
 
     return(
@@ -90,17 +90,19 @@ const EditMode = ({navigation, route}) => {
                 editable = {true} 
                 value = {title}
                 onChangeText = {(text)=> (dispatch(setTitle(text)))}
+                maxLength = {30}
             />
             <TextInput
                 style = {styles.textBorder} 
                 editable = {true} 
                 value = {type}
                 onChangeText = {(text)=> (dispatch(setType(text)))}
+                maxLength = {12}
              />
             <TextInput 
                 style = {styles.textBorder} 
                 editable = {true} 
-                value = {price +''}
+                value = {price + ''}
                 onChangeText = {(text)=> (dispatch(setPrice(text)))}
                 keyboardType = "numeric"
                 maxLength = {7}
@@ -110,19 +112,23 @@ const EditMode = ({navigation, route}) => {
                 editable = {true} 
                 value = {status}
                 onChangeText = {(text)=> (dispatch(setStatus(text)))}
+                maxLength = {4}
             />
             <TextInput 
                 style = {styles.textBorder} 
                 editable = {true} 
-                value = {rating}
+                value = {rating + ''}
                 onChangeText = {(text)=> (dispatch(setRating(text)))}
                 keyboardType = "number-pad"
+                maxLength = {2}
             />
             <TextInput 
                 style = {styles.textBorder} 
                 editable = {true} 
                 value = {comment}
                 onChangeText = {(text)=> (dispatch(setComment(text)))}
+                multiline = {true}
+                numberOfLines = {10}
             />
             <Button 
                 title = "Save" 
