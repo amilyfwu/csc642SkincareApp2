@@ -14,15 +14,20 @@ const Overview = ({navigation,route}) => {
     const [remove,setRemove] = React.useState(false);
     //grab data
     const items = useSelector(state => state.dataReducer.items);
+    //filter data according to routine
+    var filteredItems = items.filter((item) => route.params.day === item.day || route.params.night === item.night);
+    //console.log(filteredItems);
+    //refreshes the page when page is onFocus
     const isFocused = useIsFocused();
     const dispatch = useDispatch();
-
+    
     React.useEffect(() => {
-        console.log("this is fake data", fakeData);
-        console.log("this is items", items);
+        // console.log("this is fake data", fakeData);
+        // console.log("this is items", items);
         dispatch(setItems(fakeData));
     },[]);//isFocused was here, I dont think it affect the items update
     
+    //default render items
     const renderItem = ({item,index,separators}) => {
         //console.log(index,separators)
         console.log("this is going to product detail");
@@ -39,9 +44,11 @@ const Overview = ({navigation,route}) => {
             </View>
         );
     };
+
+    //render only when deleting items
     const renderItem2 = ({item,index,separators}) => {
         //console.log(index,separators)
-        console.log("this is going to delete");
+        //console.log("this is going to delete");
         return (
             <View style = {styles.buttonSpace}>
                 <Button 
@@ -65,7 +72,9 @@ const Overview = ({navigation,route}) => {
 
     return (
         <View>
-            {route.params.routine && <Text>This is {route.params.routine} {remove +''}</Text> }
+            {route.params.day && <Text>This is day</Text>}
+            {route.params.night && <Text>This is Night</Text>}
+
             {remove && (
                 <View style = {styles.buttonSpace}>
                     <Button title ="Done" onPress = {() => {setRemove(false)}}/>
@@ -78,6 +87,20 @@ const Overview = ({navigation,route}) => {
                 </View>
             )}
             <View>
+                {!remove && isFocused && (
+                    <FlatList
+                        data = {filteredItems}
+                        renderItem = {renderItem}
+                        keyExtractor = {(item,i) => item.title + i}
+                    />
+                )}
+                {remove && isFocused && (
+                    <FlatList
+                        data = {filteredItems}
+                        renderItem = {renderItem2}
+                        keyExtractor = {(item,i) => item.title + i}
+                    />
+                )}
                 {/* <FlatList
                     data = {fakeData}
                     renderItem = {!remove ? renderItem : renderItem2}
@@ -91,22 +114,7 @@ const Overview = ({navigation,route}) => {
                         </View>
                     );
                 })} */}
-                {!remove && isFocused && (
-                    <FlatList
-                        data = {items}
-                        renderItem = {renderItem}
-                        keyExtractor = {(item,i) => item.title + i}
-                    />
-                )}
-                {remove && isFocused && (
-                    <FlatList
-                        data = {items}
-                        renderItem = {renderItem2}
-                        keyExtractor = {(item,i) => item.title + i}
-                    />
-                )}
             </View>
-
         </View>
     );
 }

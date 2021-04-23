@@ -8,15 +8,15 @@ const RoutinePick = ({navigation}) => {
         <View style = {styles.container}>
             <Button
                 title = "☀️"
-                onPress = {()=>{navigation.push("Overview",{routine: "Day"})}}
+                onPress = {()=>{navigation.push("Overview",{day:true, night:false})}}
             />
             <Button 
                 title = "🌙"
-                onPress = {()=>{navigation.push("Overview",{routine: "Night"})}}
+                onPress = {()=>{navigation.push("Overview",{day:false, night:true})}}
             />
             <Button 
                 title = "☀️🌙"
-                onPress = {()=>{navigation.push("Overview",{routine: "Both"})}}
+                onPress = {()=>{navigation.push("Overview",{day:true, night:true})}}
             />
         </View>
     );
