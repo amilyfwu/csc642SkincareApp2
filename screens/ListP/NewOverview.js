@@ -18,7 +18,7 @@ const NewOverview = ({navigation,route}) => {
 
     React.useEffect(() => {
         dispatch(setNewItems(fakeNewData));
-    },[]);
+    },[isFocused]);
 
     const renderItem = ({item, index}) => {
         return (
@@ -27,8 +27,9 @@ const NewOverview = ({navigation,route}) => {
                     key = {index} 
                     title = {item.title}
                     onPress = {() => {
+                        console.log()
                         dispatch(setNewAll(item.title, item.type, item.price, item.id));
-                        navigation.push("New Edit Mode", item);
+                        navigation.push("New Edit Mode");
                     }}
                 />
             </View>
@@ -44,11 +45,7 @@ const NewOverview = ({navigation,route}) => {
                     onPress = {() => {
                         console.log('remove item ' + item.title)
                         //finds the item
-                        const findItem =  fakeNewData.find(element => {
-                            if(element.id === item.id){
-                                return element.id;
-                            }
-                        })
+                        const findItem =  fakeNewData.find(element => element.id === item.id)
                         const removeItem = fakeNewData.indexOf(findItem);
                         fakeNewData.splice(removeItem,1);
                     }}
@@ -56,7 +53,6 @@ const NewOverview = ({navigation,route}) => {
             </View>
         );
     };
-
     return(
         <View style = {styles.container}>
             <Text>This is New Screen</Text>
@@ -71,22 +67,26 @@ const NewOverview = ({navigation,route}) => {
                     <Button title ="REMOVE" onPress = {() => (setRemove(true))}/>
                 </View>
             )}
-            {!remove && isFocused && (
+            {!remove && (
                     <FlatList
                         data = {items}
                         renderItem = {renderItem}
-                        keyExtractor = {(item,i) => item.title + i}
+                        keyExtractor = {(item) => item.id}
+                        extraData = {isFocused}
                     />
             )}
-            {remove && isFocused && (
+            {remove && (
                 <FlatList
                     data = {items}
                     renderItem = {renderItemRemove}
-                    keyExtractor = {(item,i) => item.title + i}
+                    keyExtractor = {(item) => item.id}
+                    extraData = {isFocused}
+                                            
                 />
             )}
         </View>
     );
+
 };
 
 export default NewOverview;

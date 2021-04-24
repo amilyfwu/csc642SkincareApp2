@@ -1,7 +1,7 @@
 //List of all products for routine
 //also need to add and remove products from the list
 import React from 'react';
-import { StyleSheet, Text, View, Button, FlatList,ScrollView } from 'react-native';
+import { Text, View, Button, FlatList } from 'react-native';
 import {fakeData} from "../../fakeData";
 import { styles } from '../../style/styles';
 import { useDispatch, useSelector } from 'react-redux';
@@ -38,7 +38,7 @@ const Overview = ({navigation,route}) => {
                     title = {item.title}
                     onPress = {() => {
                         dispatch(setAll(item.title, item.type, item.price, item.status, item.rating, item.comment, item.day, item.night, item.dateEntered, item.id));
-                        navigation.push("Edit Mode", item);
+                        navigation.push("Edit Mode");
                     }}
                 />
             </View>
@@ -57,11 +57,7 @@ const Overview = ({navigation,route}) => {
                     onPress = {() => {
                         console.log('remove item ' + item.title)
                         //finds the item
-                        const findItem =  fakeData.find(element => {
-                            if(element.id === item.id){
-                                return element.id;
-                            }
-                        })
+                        const findItem =  fakeData.find(element => element.id === item.id);
                         const removeItem = fakeData.indexOf(findItem);
                         fakeData.splice(removeItem,1);
                     }}
@@ -86,18 +82,20 @@ const Overview = ({navigation,route}) => {
                     <Button title ="REMOVE" onPress = {() => (setRemove(true))}/>
                 </View>
             )}
-            {!remove && isFocused && (
+            {!remove && (
                 <FlatList
                     data = {filteredItems}
                     renderItem = {renderItem}
-                    keyExtractor = {(item,i) => item.title + i}
+                    keyExtractor = {(item) => item.id}
+                    extraData = {isFocused}
                 />
             )}
-            {remove && isFocused && (
+            {remove && (
                 <FlatList
                     data = {filteredItems}
                     renderItem = {renderItemRemove}
-                    keyExtractor = {(item,i) => item.title + i}
+                    keyExtractor = {(item) => item.id}
+                    extraData = {isFocused}
                 />
             )}
             {/* <FlatList
