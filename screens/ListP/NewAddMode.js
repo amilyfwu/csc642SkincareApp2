@@ -19,6 +19,11 @@ const NewAddMode = ({navigation,route}) => {
         console.log(data);
         fakeNewData.push(data);
     };
+    const reset = () => {
+        setTitle('');
+        setType('');
+        setPrice(0);
+    };
 
     return(
         <View style = {styles.container}>
@@ -45,7 +50,13 @@ const NewAddMode = ({navigation,route}) => {
                 keyboardType = "numeric"
                 maxLength = {7}
             />
-            <Button title = "Save" onPress = {() => {addItem()}}/> 
+            <Button 
+                title = "Save" 
+                onPress = {() => {
+                    addItem();
+                    reset();
+                }}
+            /> 
             <Button title = "Cancel" onPress = {() => {navigation.goBack()}}/> 
         </View>
     );

@@ -35,6 +35,17 @@ const AddMode = ({navigation, route}) => {
         fakeData.push(data);
     };
 
+    const reset = () => {
+        setTitle('');
+        setType('');
+        setPrice(0);
+        setStatus('');
+        setRating(0);
+        setComment('');
+        setDay(false);
+        setNight(false);
+    };
+
     return(
         <View>
             <TextInput 
@@ -86,7 +97,12 @@ const AddMode = ({navigation, route}) => {
             <Switch onValueChange = {(val)=>(setDay(val))} value = {day} />
             <Text>Night</Text>
             <Switch onValueChange = {(val)=>(setNight(val))} value = {night}/>
-            <Button title = "Save" onPress = {() => {addItem()}}/> 
+            <Button 
+                title = "Save" 
+                onPress = {() => {
+                    addItem();
+                    reset();
+                }}/> 
             <Button title = "Cancel" onPress = {() => {navigation.goBack()}}/> 
         </View>
     );
