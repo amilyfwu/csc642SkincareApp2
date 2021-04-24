@@ -8,11 +8,11 @@ const ListPick = ({navigation}) => {
             <Text>This is List Screen</Text>
             <Button 
                 title = "New Products"
-                onPress = {() => navigation.push("NewP")}
+                onPress = {() => navigation.push("New")}
             />
             <Button 
                 title = "Old/Used Products"
-                onPress = {() => navigation.push("UsedP", {new:false, old:true})
+                onPress = {() => navigation.push("Used", {new:false, old:true})
                 }
             />
         </View>

@@ -46,7 +46,7 @@ const DayAndNightStackNavigator = () => {
     return (
         <Stack.Navigator screenOptions = {screenOptionStyle}>
             <Stack.Screen 
-                name = "RoutinePick" 
+                name = "Pick Routine" 
                 component = {RoutinePick}
                 options = {()=>({
                     title: "Pick Routine",
@@ -73,6 +73,9 @@ const DayAndNightStackNavigator = () => {
             <Stack.Screen
                 name = "Edit Mode"
                 component = {EditMode}
+                options = {() => ({
+                    title: "Detail"
+                })}
                 //trying to add icon on the top right
                 // options = {(prop) => ({
                 //     headerRight: () => {
@@ -98,9 +101,9 @@ const SkinMoodStackNavigator = () => {
 const ListStackNavigator = () => {
     return (
         <Stack.Navigator screenOptions = {screenOptionStyle}>
-            <Stack.Screen name = "ListPick" component = {ListPick}/> 
-            <Stack.Screen name = "NewP" component = {NewP}/>
-            <Stack.Screen name = "UsedP" component = {UsedP}/> 
+            <Stack.Screen name = "Pick List" component = {ListPick}/> 
+            <Stack.Screen name = "New" component = {NewP}/>
+            <Stack.Screen name = "Used" component = {UsedP}/> 
         </Stack.Navigator>
     );
 }
