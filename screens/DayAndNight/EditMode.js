@@ -8,11 +8,11 @@
 //Input cannot be blank except for Comment
 
 import React from 'react';
-import { Text, View, Button, TextInput } from 'react-native';
+import { Text, View, Button, TextInput, Switch } from 'react-native';
 import { fakeData } from '../../fakeData';
 import {styles} from '../../style/styles';
 import { useSelector, useDispatch } from 'react-redux';
-import { setTitle,setType,setComment,setPrice,setStatus,setRating } from '../../redux/actions/dataAction';
+import { setTitle,setType,setComment,setPrice,setStatus,setRating, setDay,setNight } from '../../redux/actions/dataAction';
 
 
 const EditMode = ({navigation, route}) => {
@@ -30,6 +30,9 @@ const EditMode = ({navigation, route}) => {
     // const [night , setNight] = React.useState(route.params.night);
     // const [dateEntered , setDateEntered] = React.useState(route.params.dateEntered);
     // const [id, setId] = React.useState(route.params.id);
+
+    const [editable,setEditable] = React.useState(false);
+
     const title = useSelector(state => state.dataReducer.title);
     const type = useSelector(state => state.dataReducer.type);  
     const price = useSelector(state => state.dataReducer.price);
@@ -87,21 +90,21 @@ const EditMode = ({navigation, route}) => {
             
             <TextInput 
                 style = {styles.textBorder} 
-                editable = {true} 
+                editable = {editable} 
                 value = {title}
                 onChangeText = {(text)=> (dispatch(setTitle(text)))}
                 maxLength = {30}
             />
             <TextInput
                 style = {styles.textBorder} 
-                editable = {true} 
+                editable = {editable} 
                 value = {type}
                 onChangeText = {(text)=> (dispatch(setType(text)))}
                 maxLength = {12}
              />
             <TextInput 
                 style = {styles.textBorder} 
-                editable = {true} 
+                editable = {editable} 
                 value = {price + ''}
                 onChangeText = {(text)=> (dispatch(setPrice(text)))}
                 keyboardType = "numeric"
@@ -109,14 +112,14 @@ const EditMode = ({navigation, route}) => {
             />
             <TextInput 
                 style = {styles.textBorder} 
-                editable = {true} 
+                editable = {editable} 
                 value = {status}
                 onChangeText = {(text)=> (dispatch(setStatus(text)))}
                 maxLength = {4}
             />
             <TextInput 
                 style = {styles.textBorder} 
-                editable = {true} 
+                editable = {editable} 
                 value = {rating + ''}
                 onChangeText = {(text)=> (dispatch(setRating(text)))}
                 keyboardType = "number-pad"
@@ -124,20 +127,48 @@ const EditMode = ({navigation, route}) => {
             />
             <TextInput 
                 style = {styles.textBorder} 
-                editable = {true} 
+                editable = {editable} 
                 value = {comment}
                 onChangeText = {(text)=> (dispatch(setComment(text)))}
                 multiline = {true}
-                numberOfLines = {10}
+                numberOfLines = {8}
             />
-            <Button 
-                title = "Save" 
-                onPress = {() => {
-                    editData();
-                    navigation.goBack()
-                }}
-            /> 
-            <Button title = "Cancel" onPress = {() => {navigation.goBack()}}/>  
+
+            <Text>Day{day+''}</Text>
+            <Switch 
+                onValueChange = {(val)=>(dispatch(setDay(val)))} 
+                value = {day} 
+                disabled= {!editable}
+            />
+
+            <Text>Night</Text>
+            <Switch 
+                onValueChange = {(val)=>(dispatch(setNight(val)))} 
+                value = {night} 
+                disabled = {!editable}
+            />
+
+            {!editable && (
+                <Button 
+                    title = "Edit" 
+                    onPress = {() => (setEditable(true))}
+                />
+            )}
+            {editable && (
+                <View>
+                    <Button 
+                        title = "Save" 
+                        onPress = {() => {
+                            editData();
+                            navigation.goBack();
+                        }}
+                    /> 
+                    <Button 
+                        title = "Cancel" 
+                        onPress = {() => (navigation.goBack())}
+                    />
+                </View>
+            )}  
 
         </View>
     );

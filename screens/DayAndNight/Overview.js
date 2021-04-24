@@ -30,7 +30,7 @@ const Overview = ({navigation,route}) => {
     //default render items
     const renderItem = ({item,index,separators}) => {
         //console.log(index,separators)
-        console.log("this is going to product detail");
+        console.log("this is going to edit mode");
         return (
             <View style = {styles.buttonSpace}>
                 <Button 
@@ -38,7 +38,7 @@ const Overview = ({navigation,route}) => {
                     title = {item.title}
                     onPress = {() => {
                         dispatch(setAll(item.title, item.type, item.price, item.status, item.rating, item.comment, item.day, item.night, item.dateEntered, item.id));
-                        navigation.push("Product Detail", item);
+                        navigation.push("Edit Mode", item);
                     }}
                 />
             </View>
