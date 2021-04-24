@@ -1,29 +1,29 @@
 export const setNewItems = (items) => ({
-    type: 'ITEMS',
+    type: 'NEW ITEMS',
     items,
 });
 export const setNewAll = (title,types,price,id) => ({
-    type: 'ALL',
+    type: 'NEW ALL',
     title,
     types,
     price,
     id,
 });
 export const setNewTitle = (title) => ({
-    type: 'TITLE',
+    type: 'NEW TITLE',
     title,
 });
 
 export const setNewType = (types) => ({
-    type: 'TYPE',
+    type: 'NEW TYPE',
     types,
 });
 
 export const setNewPrice = (price) => ({
-    type: 'PRICE',
+    type: 'NEW PRICE',
     price,
 });
 export const setId = (id) => ({
-    type: 'ID',
+    type: 'NEW ID',
     id,
 });

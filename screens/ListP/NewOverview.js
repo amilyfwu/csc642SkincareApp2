@@ -9,7 +9,7 @@ import { useIsFocused } from '@react-navigation/core';
 
 
 const NewOverview = ({navigation,route}) => {
-    console.log(navigation,route);
+    //console.log(navigation,route);
 
     const [remove,setRemove] = React.useState(false);
     const isFocused = useIsFocused();

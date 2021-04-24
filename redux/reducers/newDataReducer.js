@@ -7,39 +7,40 @@ const initState = () => ({
 });
 
 const newDataReducer = (state = initState(), action) => {
+    console.log("This is new state and action",state,action);
     switch(action.type){
-        case 'ITEMS':
+        case 'NEW ITEMS':
             return {
                 ...state,
                 items: action.items
             };
-        case 'ALL':
+        case 'NEW ALL':
             return {
                 ...state,
                 title: action.title,
                 type: action.types,
                 price: action.price,
-                id: action.price,
+                id: action.id,
             };
-        case 'TITLE':
+        case 'NEW TITLE':
             return {
                 ...state,
                 title: action.title,
             };
-        case 'TYPE':
+        case 'NEW TYPE':
             return {
                 ...state,
                 type: action.types,
             };
-        case 'PRICE':
+        case 'NEW PRICE':
             return {
                 ...state,
                 price: action.price,
             };
-        case 'ID':
+        case 'NEW ID':
             return {
                 ...state,
-                id: action.price,
+                id: action.id,
             };
         default:
             return state;
