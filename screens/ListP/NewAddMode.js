@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { styles } from '../../style/styles';
 import {fakeNewData} from '../../fakeNewData';
 
-const NewEditMode = ({navigation,route}) => {
+const NewAddMode = ({navigation,route}) => {
 
     return(
         <View>
@@ -15,4 +15,4 @@ const NewEditMode = ({navigation,route}) => {
          
 };
 
-export default NewEditMode;
+export default NewAddMode;

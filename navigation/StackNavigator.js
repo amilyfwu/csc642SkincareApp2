@@ -9,14 +9,16 @@ import Contact from '../screens/Contact';
 import SkinMood from '../screens/SkinMood';
 import RoutinePick from '../screens/DayAndNight/RoutinePick';
 import ListPick from '../screens/ListP/ListPick';
-import NewP from '../screens/ListP/NewP';
-import UsedP from '../screens/ListP/UsedP';
 import Calendar from '../screens/Calendar';
 import Overview from '../screens/DayAndNight/Overview';
 import ProductDetail from '../screens/DayAndNight/ProductDetail';
 import EditMode from '../screens/DayAndNight/EditMode';
 import { Ionicons } from '@expo/vector-icons';
 import AddMode from '../screens/DayAndNight/AddMode';
+import UsedOverview from '../screens/ListP/UsedOverview';
+import NewOverview from '../screens/ListP/NewOverview';
+import NewEditMode from '../screens/ListP/NewEditMode';
+import NewAddMode from '../screens/ListP/NewAddMode';
 const Stack = createStackNavigator();
 
 const screenOptionStyle = {
@@ -102,8 +104,22 @@ const ListStackNavigator = () => {
     return (
         <Stack.Navigator screenOptions = {screenOptionStyle}>
             <Stack.Screen name = "Pick List" component = {ListPick}/> 
-            <Stack.Screen name = "New" component = {NewP}/>
-            <Stack.Screen name = "Used" component = {UsedP}/> 
+            <Stack.Screen name = "New" component = {NewOverview}/>
+            <Stack.Screen name = "Used" component = {UsedOverview}/>
+            <Stack.Screen 
+                name = "New Edit Mode" 
+                component = {NewEditMode}
+                options = {() => ({
+                    title: "Detail"
+                })}
+            /> 
+            <Stack.Screen 
+                name = "New Add Mode" 
+                component = {NewAddMode}
+                options = {() => ({
+                    title: "Add New Product"
+                })}
+            /> 
         </Stack.Navigator>
     );
 }

@@ -46,7 +46,7 @@ const Overview = ({navigation,route}) => {
     };
 
     //render only when deleting items
-    const renderItem2 = ({item,index,separators}) => {
+    const renderItemRemove = ({item,index,separators}) => {
         //console.log(index,separators)
         //console.log("this is going to delete");
         return (
@@ -55,15 +55,15 @@ const Overview = ({navigation,route}) => {
                     key = {index} 
                     title = {item.title}
                     onPress = {() => {
-                        console.log('delete item ' + item.title)
+                        console.log('remove item ' + item.title)
                         //finds the item
                         const findItem =  fakeData.find(element => {
                             if(element.id === item.id){
                                 return element.id;
                             }
                         })
-                        const deleteItem = fakeData.indexOf(findItem);
-                        fakeData.splice(deleteItem,1);
+                        const removeItem = fakeData.indexOf(findItem);
+                        fakeData.splice(removeItem,1);
                     }}
                 />
             </View>
@@ -71,7 +71,7 @@ const Overview = ({navigation,route}) => {
     };
 
     return (
-        <View>
+        <View style = {styles.container}>
             {route.params.day && <Text>This is day</Text>}
             {route.params.night && <Text>This is Night</Text>}
 
@@ -86,35 +86,34 @@ const Overview = ({navigation,route}) => {
                     <Button title ="REMOVE" onPress = {() => (setRemove(true))}/>
                 </View>
             )}
-            <View>
-                {!remove && isFocused && (
-                    <FlatList
-                        data = {filteredItems}
-                        renderItem = {renderItem}
-                        keyExtractor = {(item,i) => item.title + i}
-                    />
-                )}
-                {remove && isFocused && (
-                    <FlatList
-                        data = {filteredItems}
-                        renderItem = {renderItem2}
-                        keyExtractor = {(item,i) => item.title + i}
-                    />
-                )}
-                {/* <FlatList
-                    data = {fakeData}
-                    renderItem = {!remove ? renderItem : renderItem2}
+            {!remove && isFocused && (
+                <FlatList
+                    data = {filteredItems}
+                    renderItem = {renderItem}
                     keyExtractor = {(item,i) => item.title + i}
-                /> */}
-                {/* {fakeData.map((value,i)=>{
-                    return (
-                        <View key = {i}>
-                            <Text>{value.title}</Text>
-                            <Button onPress = {() => (navigation.push("Product Detail", value))}></Button>
-                        </View>
-                    );
-                })} */}
-            </View>
+                />
+            )}
+            {remove && isFocused && (
+                <FlatList
+                    data = {filteredItems}
+                    renderItem = {renderItemRemove}
+                    keyExtractor = {(item,i) => item.title + i}
+                />
+            )}
+            {/* <FlatList
+                data = {fakeData}
+                renderItem = {!remove ? renderItem : renderItem2}
+                keyExtractor = {(item,i) => item.title + i}
+            /> */}
+            {/* {fakeData.map((value,i)=>{
+                return (
+                    <View key = {i}>
+                        <Text>{value.title}</Text>
+                        <Button onPress = {() => (navigation.push("Product Detail", value))}></Button>
+                    </View>
+                );
+            })} */}
+            
         </View>
     );
 }

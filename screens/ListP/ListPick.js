@@ -12,8 +12,7 @@ const ListPick = ({navigation}) => {
             />
             <Button 
                 title = "Old/Used Products"
-                onPress = {() => navigation.push("Used", {new:false, old:true})
-                }
+                onPress = {() => navigation.push("Used", {new:false, old:true})}
             />
         </View>
     );
