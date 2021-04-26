@@ -8,7 +8,7 @@ export const fakeData = [
         comment: "dsfsdfjsakdjskfjsdv",
         day: true,
         night:true,
-        dateEntered: "04/12/21",
+        dateEntered: "4/12/2021",
         id: "34gerr32rvb",
     },
     {
@@ -20,7 +20,7 @@ export const fakeData = [
         comment: "dsfsdfjsakdjskfjsdv",
         day: true,
         night:true,
-        dateEntered: "04/12/21",
+        dateEntered: "4/12/2021",
         id: "fggrfi353f2",
     },
     {
@@ -32,7 +32,7 @@ export const fakeData = [
         comment: "dsfsdfjsakdjfgdfgsdfdfskfjsdv",
         day: true,
         night:false,
-        dateEntered: "04/12/21",
+        dateEntered: "4/12/2021",
         id: "3694berf23f",
 
     },
@@ -45,7 +45,7 @@ export const fakeData = [
         comment: "sfgfhsdfdsdfjsakdjfgdfgsdfdfskfjsdv",
         day: false,
         night: true,
-        dateEntered: "04/11/21",
+        dateEntered: "4/11/2021",
         id: "34vff3e432d",
     },
     {
@@ -57,7 +57,7 @@ export const fakeData = [
         comment: "sdsdfssfgfhsdfdsdfjsakdjfgdfgsdfdfskfjsdv",
         day: true,
         night: true,
-        dateEntered: "04/11/21",
+        dateEntered: "4/11/2021",
         id: "543gfdvvds3",
     },
     {
@@ -69,7 +69,7 @@ export const fakeData = [
         comment: "kljksdsdfssfgfjsakdjfgdfgsdfdfskfjsdv",
         day: true,
         night: false,
-        dateEntered: "04/11/21",
+        dateEntered: "4/11/2021",
         id: "42fvsdf3ff4",
     },
     {
@@ -81,7 +81,7 @@ export const fakeData = [
         comment: "sdsdfssfgfhsdfdsdfjsakdjfgdfgsdfdfskfjsdv",
         day: false,
         night: true,
-        dateEntered: "04/11/21",
+        dateEntered: "4/11/2021",
         id: "6hbrrgerf39",
     },
     {
@@ -93,7 +93,7 @@ export const fakeData = [
         comment: "sgfhsdfdsdfjsakdjfgdfgsdfdfskfjsdv",
         day: true,
         night: true,
-        dateEntered: "04/11/21",
+        dateEntered: "4/11/2021",
         id: "bjhmfgkfd34",
     },
 
