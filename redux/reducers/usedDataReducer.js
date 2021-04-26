@@ -12,15 +12,15 @@ const initState = () => ({
     id: '',
 });
 
-const dataReducer = (state = initState(), action) => {
+const usedDataReducer = (state = initState(), action) => {
     //console.log("this is reducer page state and action" , state, action);
     switch(action.type){
-        case 'ITEMS':
+        case 'USED ITEMS':
             return {
                 ...state,
                 items: action.items
               };
-        case 'ALL':
+        case 'USED ALL':
             return{
                 ...state,
                 title: action.title,
@@ -34,52 +34,52 @@ const dataReducer = (state = initState(), action) => {
                 dateEntered: action.dateEntered,
                 id: action.id,
             };
-        case 'TITLE':
+        case 'USED TITLE':
             return {
                 ...state,
                 title: action.title
               };
-        case 'TYPE':
+        case 'USED TYPE':
             return {
                 ...state,
                 type: action.types
               };
-        case 'PRICE':
+        case 'USED PRICE':
             return {
                 ...state,
                 price: action.price
               };
-        case 'STATUS':
+        case 'USED STATUS':
             return {
                 ...state,
                 status: action.status
               };
-        case 'RATING':
+        case 'USED RATING':
             return {
                 ...state,
                 rating: action.rating
               };
-        case 'COMMENT':
+        case 'USED COMMENT':
             return {
                 ...state,
                 comment: action.comment
               };
-        case 'DAY':
+        case 'USED DAY':
             return {
                 ...state,
                 day: action.day
               };
-        case 'NIGHT':
+        case 'USED NIGHT':
             return {
                 ...state,
                 night: action.night
               };
-        case 'DATE':
+        case 'USED DATE':
             return {
                 ...state,
                 dateEntered: action.dateEntered
               };
-        case 'ID':
+        case 'USED ID':
             return {
                 ...state,
                 id: action.id
@@ -90,4 +90,4 @@ const dataReducer = (state = initState(), action) => {
     }
 };
 
-export default dataReducer;
+export default usedDataReducer;

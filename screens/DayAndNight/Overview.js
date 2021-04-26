@@ -15,7 +15,17 @@ const Overview = ({navigation,route}) => {
     //grab data
     const items = useSelector(state => state.dataReducer.items);
     //filter data according to routine
-    var filteredItems = items.filter((item) => route.params.day === item.day || route.params.night === item.night);
+    var filteredItems = items.filter((item) => {
+        if(route.params.routine === "Both" && (route.params.day === item.day || route.params.night === item.night)){
+            return item;
+        }
+        else if (route.params.day === item.day && route.params.routine === "Day"){
+            return item;
+        }
+        else if(route.params.night === item.night && route.params.routine === "Night"){
+            return item;
+        }
+    });
     //console.log(filteredItems);
     //refreshes the page when page is onFocus
     const isFocused = useIsFocused();
@@ -25,12 +35,13 @@ const Overview = ({navigation,route}) => {
         // console.log("this is fake data", fakeData);
         // console.log("this is items", items);
         dispatch(setItems(fakeData));
+        //filteredItems = items.filter((item) => route.params.day === item.day || route.params.night === item.night);
     },[]);//isFocused was here, I dont think it affect the items update
     
     //default render items
     const renderItem = ({item,index,separators}) => {
         //console.log(index,separators)
-        console.log("this is going to edit mode");
+        //console.log("this is going to edit mode");
         return (
             <View style = {styles.buttonSpace}>
                 <Button 

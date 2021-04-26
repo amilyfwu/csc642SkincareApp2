@@ -7,7 +7,7 @@ const initState = () => ({
 });
 
 const newDataReducer = (state = initState(), action) => {
-    console.log("This is new state and action",state,action);
+    //console.log("This is new state and action",state,action);
     switch(action.type){
         case 'NEW ITEMS':
             return {

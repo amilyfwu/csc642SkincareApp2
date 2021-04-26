@@ -19,6 +19,7 @@ import UsedOverview from '../screens/ListP/UsedOverview';
 import NewOverview from '../screens/ListP/NewOverview';
 import NewEditMode from '../screens/ListP/NewEditMode';
 import NewAddMode from '../screens/ListP/NewAddMode';
+import UsedEditMode from '../screens/ListP/UsedEditMode';
 const Stack = createStackNavigator();
 
 const screenOptionStyle = {
@@ -106,6 +107,13 @@ const ListStackNavigator = () => {
             <Stack.Screen name = "Pick List" component = {ListPick}/> 
             <Stack.Screen name = "New" component = {NewOverview}/>
             <Stack.Screen name = "Used" component = {UsedOverview}/>
+            <Stack.Screen 
+                name = "Used Edit Mode" 
+                component = {UsedEditMode}
+                options = {() => ({
+                    title: "Detail"
+                })}
+            />
             <Stack.Screen 
                 name = "New Edit Mode" 
                 component = {NewEditMode}

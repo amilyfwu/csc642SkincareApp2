@@ -18,7 +18,7 @@ const NewOverview = ({navigation,route}) => {
 
     React.useEffect(() => {
         dispatch(setNewItems(fakeNewData));
-    },[isFocused]);
+    },[]);
 
     const renderItem = ({item, index}) => {
         return (
@@ -27,7 +27,6 @@ const NewOverview = ({navigation,route}) => {
                     key = {index} 
                     title = {item.title}
                     onPress = {() => {
-                        console.log()
                         dispatch(setNewAll(item.title, item.type, item.price, item.id));
                         navigation.push("New Edit Mode");
                     }}

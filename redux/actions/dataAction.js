@@ -58,7 +58,7 @@ export const setNight = (night) => ({
 });
 
 export const setDate = (dateEntered) => ({
-    type: 'ID',
+    type: 'DATE',
     dateEntered,
 });
 

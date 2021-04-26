@@ -1,22 +1,51 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { Text, View, Button, FlatList } from 'react-native';
+import { styles } from '../../style/styles';
+import { useSelector, useDispatch } from 'react-redux';
+import { setUsedAll, setUsedItems } from '../../redux/actions/usedDataAction';
+import {fakeData} from "../../fakeData";
+import { useIsFocused } from '@react-navigation/core';
 
-const UsedP = ({navigation,route}) => {
-    console.log(navigation,route);
+
+
+const UsedOverview = ({navigation,route}) => {
+    //console.log(navigation,route);
+    const items = useSelector(state => state.usedDataReducer.items);
+    const isFocused = useIsFocused();
+
+    const dispatch = useDispatch();
+
+    React.useEffect(() => {
+        dispatch(setUsedItems(fakeData));
+    },[]);
+    
+    const renderItem = ({item, index}) => {
+        return (
+            <View style = {styles.buttonSpace}>
+                <Button 
+                    key = {index} 
+                    title = {item.title}
+                    onPress = {() => {
+                        dispatch(setUsedAll(item.title, item.type, item.price, item.status, item.rating, item.comment, item.day, item.night, item.dateEntered, item.id));
+                        navigation.push("Used Edit Mode");
+                    }}
+                />
+            </View>
+        );
+    };
+
     return(
         <View style = {styles.container}>
             <Text>This is Used Screen</Text>
+            <FlatList
+                data = {items}
+                renderItem = {renderItem}
+                keyExtractor = {(item) => item.id}
+                extraData = {isFocused}
+            />
         </View>
     );
 };
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-}); 
 
-export default UsedP;
+export default UsedOverview;
