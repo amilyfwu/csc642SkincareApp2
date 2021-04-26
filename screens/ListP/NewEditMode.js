@@ -2,9 +2,9 @@ import React from 'react';
 import { Text, View, Button, TextInput } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { styles } from '../../style/styles';
-import {fakeNewData} from '../../fakeNewData';
+import {fakeNewData} from '../../data/fakeNewData';
 import { setNewItems, setNewPrice, setNewTitle, setNewType } from '../../redux/actions/newDataAction';
-import { fakeData } from '../../fakeData';
+import { fakeData } from '../../data/fakeData';
 
 const NewEditMode = ({navigation}) => {
 

@@ -9,7 +9,7 @@
 
 import React from 'react';
 import { Text, View, Button, TextInput, Switch } from 'react-native';
-import { fakeData } from '../../fakeData';
+import { fakeData } from '../../data/fakeData';
 import {styles} from '../../style/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { setTitle,setType,setComment,setPrice,setStatus,setRating, setDay,setNight } from '../../redux/actions/dataAction';

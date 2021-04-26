@@ -2,50 +2,44 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 const SkinMood = ({navigation, route}) => {
-    console.log(navigation, route);
-    const [mood, setMood] = React.useState(1);
     
-    // const handleMood = (x) => {
-    //     //console.log(prop, prop.target.textContent)
-    //     //console.log(x.target.textContent);
-    //     switch(x.target.textContent){
-    //         case "😎":
-    //             setMood(3);  
-    //             break;
-    //         case "🙂":
-    //             setMood(2);  
-    //             break;
-    //         case "😐":
-    //             setMood(1);  
-    //             break;
-    //         case "🙁":
-    //             setMood(0);  
-    //             break;
-    //         default:    
-    //     }
-    // }
-    function handleMood(mood){
-        console.log(mood);
+    const handleMood = (prop) => {
+        //console.log(prop, prop.target.textContent)
+        //console.log(x.target.textContent);
+        switch(prop){
+            case 0:
+                  
+                break;
+            case 1:
+                 
+                break;
+            case 2:
+                
+                break;
+            case 3:
+                  
+                break;    
+        }
     }
 
     return(
         <View style = {styles.container}>
-            <Text style = {styles.font}>How is Your Skin Today? {mood}</Text>
+            <Text style = {styles.font}>How is Your Skin Today?</Text>
             <Button 
                 title = "😎"
-                onPress = {handleMood}
+                onPress = {() => handleMood(3)}
             />
             <Button
                 title = "🙂"
-                onPress = {handleMood}
+                onPress = {() => handleMood(2)}
             />
             <Button 
                 title = "😐"
-                onPress = {handleMood}
+                onPress = {() => handleMood(1)}
             />
             <Button 
                 title = "🙁"
-                onPress = {handleMood}
+                onPress = {() => handleMood(0)}
             />
         </View>
     );

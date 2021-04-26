@@ -1,7 +1,7 @@
 import React from 'react';
 import {styles} from '../../style/styles' 
 import { View, Button, TextInput, Touchable, TouchableOpacity, Switch,Text } from 'react-native';
-import { fakeData } from '../../fakeData';
+import { fakeData } from '../../data/fakeData';
 
 
 const AddMode = ({navigation, route}) => {

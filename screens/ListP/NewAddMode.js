@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, Button, TextInput } from 'react-native';
 import { styles } from '../../style/styles';
-import {fakeNewData} from '../../fakeNewData';
+import {fakeNewData} from '../../data/fakeNewData';
 
 const NewAddMode = ({navigation,route}) => {
     const [title , setTitle] = React.useState('');

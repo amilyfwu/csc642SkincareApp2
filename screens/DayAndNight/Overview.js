@@ -2,7 +2,7 @@
 //also need to add and remove products from the list
 import React from 'react';
 import { Text, View, Button, FlatList } from 'react-native';
-import {fakeData} from "../../fakeData";
+import {fakeData} from "../../data/fakeData";
 import { styles } from '../../style/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAll, setItems } from '../../redux/actions/dataAction';

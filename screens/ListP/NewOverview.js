@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, Button, FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { styles } from '../../style/styles';
-import {fakeNewData} from '../../fakeNewData';
+import {fakeNewData} from '../../data/fakeNewData';
 import { setNewAll, setNewItems } from '../../redux/actions/newDataAction';
 import { useIsFocused } from '@react-navigation/core';
 
