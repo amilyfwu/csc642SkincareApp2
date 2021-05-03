@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { Text, View, Button } from 'react-native';
+import { globalStyles} from '../../style/styles';
 
 const RoutinePick = ({navigation}) => {
     //Pick Routine
     //onPress = {()=>{navigation.navigate('Overview',{routine:"Night"})}}
     return(
-        <View style = {styles.container}>
+        <View style = {globalStyles.container}>
             <Button
                 title = "☀️"
                 onPress = {()=>{navigation.push("Overview",{day:true, night:false, routine:"Day"})}}
@@ -22,13 +23,5 @@ const RoutinePick = ({navigation}) => {
     );
 };
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-}); 
 
 export default RoutinePick;

@@ -1,8 +1,6 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
-    MainStackNavigator, 
-    ContactStackNavigator, 
     SkinMoodStackNavigator, 
     DayAndNightStackNavigator,
     ListStackNavigator,
@@ -61,7 +59,6 @@ const BottomTabNavigator = () => {
 
             }}
         >
-            {/* <Tab.Screen name = "Home" component= {MainStackNavigator} /> */}
             <Tab.Screen name = "Day/Night" component= {DayAndNightStackNavigator} />
             <Tab.Screen name = "SkinMood" component= {SkinMoodStackNavigator} />
             <Tab.Screen name = "Calendar" component= {CalendarStackNavigator} />

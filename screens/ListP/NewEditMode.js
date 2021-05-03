@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, Button, TextInput } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { styles } from '../../style/styles';
+import { globalStyles } from '../../style/styles';
 import {fakeNewData} from '../../data/fakeNewData';
 import { setNewItems, setNewPrice, setNewTitle, setNewType } from '../../redux/actions/newDataAction';
 import { fakeData } from '../../data/fakeData';
@@ -73,25 +73,25 @@ const NewEditMode = ({navigation}) => {
     };
 
     return(
-        <View style = {styles.container}>
+        <View style = {globalStyles.container}>
             <Text>new Edit mode</Text>
             
             <TextInput 
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {editable} 
                 value = {title}
                 onChangeText = {(text)=> (dispatch(setNewTitle(text)))}
                 maxLength = {30}
             />
             <TextInput
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {editable} 
                 value = {type}
                 onChangeText = {(text)=> (dispatch(setNewType(text)))}
                 maxLength = {12}
              />
             <TextInput 
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {editable} 
                 value = {price + ''}
                 onChangeText = {(text)=> (dispatch(setNewPrice(text)))}

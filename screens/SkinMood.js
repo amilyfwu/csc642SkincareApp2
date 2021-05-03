@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { Text, View, Button } from 'react-native';
 import { fakeMoodData } from '../data/fakeMoodData';
+import { globalStyles } from '../style/styles';
 
 const SkinMood = ({navigation, route}) => {
     const [message, setMessage] = React.useState(false);
@@ -42,8 +43,8 @@ const SkinMood = ({navigation, route}) => {
     };
 
     return(
-        <View style = {styles.container}>
-            <Text style = {styles.font}>How is Your Skin Today?</Text>
+        <View style = {globalStyles.container}>
+            <Text style = {globalStyles.font}>How is Your Skin Today?</Text>
             <Text>{message ? 'Submitted' : 'Not Submitted' }</Text>
             <Button 
                 title = "😎"
@@ -65,16 +66,5 @@ const SkinMood = ({navigation, route}) => {
     );
 };
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    font: {
-        fontSize: 48,
-    }
-}); 
 
 export default SkinMood;

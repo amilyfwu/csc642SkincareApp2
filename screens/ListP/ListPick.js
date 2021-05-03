@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { Text, View, Button } from 'react-native';
+import { globalStyles } from '../../style/styles';
 
 const ListPick = ({navigation}) => {
 
     return(
-        <View style = {styles.container}>
+        <View style = {globalStyles.container}>
             <Text>This is List Screen</Text>
             <Button 
                 title = "New Products"
@@ -17,14 +18,5 @@ const ListPick = ({navigation}) => {
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-}); 
 
 export default ListPick;

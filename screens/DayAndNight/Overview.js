@@ -3,7 +3,7 @@
 import React from 'react';
 import { Text, View, Button, FlatList } from 'react-native';
 import {fakeData} from "../../data/fakeData";
-import { styles } from '../../style/styles';
+import { globalStyles } from '../../style/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAll, setItems } from '../../redux/actions/dataAction';
 import { useIsFocused } from '@react-navigation/core';
@@ -43,7 +43,7 @@ const Overview = ({navigation,route}) => {
         //console.log(index,separators)
         //console.log("this is going to edit mode");
         return (
-            <View style = {styles.buttonSpace}>
+            <View style = {globalStyles.buttonSpace}>
                 <Button 
                     key = {index} 
                     title = {item.title}
@@ -61,7 +61,7 @@ const Overview = ({navigation,route}) => {
         //console.log(index,separators)
         //console.log("this is going to delete");
         return (
-            <View style = {styles.buttonSpace}>
+            <View style = {globalStyles.buttonSpace}>
                 <Button 
                     key = {index} 
                     title = {item.title}
@@ -78,17 +78,17 @@ const Overview = ({navigation,route}) => {
     };
 
     return (
-        <View style = {styles.container}>
+        <View style = {globalStyles.container}>
             {route.params.day && <Text>This is day</Text>}
             {route.params.night && <Text>This is Night</Text>}
 
             {remove && (
-                <View style = {styles.buttonSpace}>
+                <View style = {globalStyles.buttonSpace}>
                     <Button title ="Done" onPress = {() => {setRemove(false)}}/>
                 </View>
             )}
             {!remove && (
-                <View style = {styles.buttonSpace}>
+                <View style = {globalStyles.buttonSpace}>
                     <Button title ="ADD" onPress = {()=> (navigation.push("Add Mode"))}/>
                     <Button title ="REMOVE" onPress = {() => (setRemove(true))}/>
                 </View>

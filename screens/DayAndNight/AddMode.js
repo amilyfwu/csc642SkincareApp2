@@ -1,5 +1,5 @@
 import React from 'react';
-import {styles} from '../../style/styles' 
+import {globalStyles} from '../../style/styles' 
 import { View, Button, TextInput, Touchable, TouchableOpacity, Switch,Text } from 'react-native';
 import { fakeData } from '../../data/fakeData';
 
@@ -49,21 +49,21 @@ const AddMode = ({navigation, route}) => {
     return(
         <View>
             <TextInput 
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {true} 
                 value = {title} 
                 onChangeText = {(text)=> (setTitle(text))}
                 maxLength = {30}
             />
             <TextInput 
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {true} 
                 value = {type} 
                 onChangeText = {(text)=> (setType(text))}
                 maxLength = {12}
             />
             <TextInput 
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {true} 
                 value = {price + ''} 
                 onChangeText = {(text)=> (setPrice(text))}
@@ -71,14 +71,14 @@ const AddMode = ({navigation, route}) => {
                 maxLength = {7}
             />
             <TextInput 
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {true} 
                 value = {status} 
                 onChangeText = {(text)=> (setStatus(text))}
                 maxLength = {4}
             />
             <TextInput 
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {true} 
                 value = {rating + ''} 
                 onChangeText = {(text)=> (setRating(text))}
@@ -86,7 +86,7 @@ const AddMode = ({navigation, route}) => {
                 maxLength = {2}
             />
             <TextInput 
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {true} 
                 value = {comment} 
                 onChangeText = {(text)=> (setComment(text))}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, Button, FlatList } from 'react-native';
-import { styles } from '../../style/styles';
+import { globalStyles } from '../../style/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUsedAll, setUsedItems } from '../../redux/actions/usedDataAction';
 import {fakeData} from "../../data/fakeData";
@@ -21,7 +21,7 @@ const UsedOverview = ({navigation,route}) => {
     
     const renderItem = ({item, index}) => {
         return (
-            <View style = {styles.buttonSpace}>
+            <View style = {globalStyles.buttonSpace}>
                 <Button 
                     key = {index} 
                     title = {item.title}
@@ -35,7 +35,7 @@ const UsedOverview = ({navigation,route}) => {
     };
 
     return(
-        <View style = {styles.container}>
+        <View style = {globalStyles.container}>
             <Text>This is Used Screen</Text>
             <FlatList
                 data = {items}

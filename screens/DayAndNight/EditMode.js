@@ -10,7 +10,7 @@
 import React from 'react';
 import { Text, View, Button, TextInput, Switch } from 'react-native';
 import { fakeData } from '../../data/fakeData';
-import {styles} from '../../style/styles';
+import {globalStyles} from '../../style/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { setTitle,setType,setComment,setPrice,setStatus,setRating, setDay,setNight } from '../../redux/actions/dataAction';
 
@@ -75,7 +75,7 @@ const EditMode = ({navigation, route}) => {
     }
 
     return(
-        <View style = {styles.container}>
+        <View style = {globalStyles.container}>
             {/* <TextInput
                 style = {styles.TextBorder} 
                 placeholder = "Enter here" 
@@ -89,21 +89,21 @@ const EditMode = ({navigation, route}) => {
             /> */}
             
             <TextInput 
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {editable} 
                 value = {title}
                 onChangeText = {(text)=> (dispatch(setTitle(text)))}
                 maxLength = {30}
             />
             <TextInput
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {editable} 
                 value = {type}
                 onChangeText = {(text)=> (dispatch(setType(text)))}
                 maxLength = {12}
              />
             <TextInput 
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {editable} 
                 value = {price + ''}
                 onChangeText = {(text)=> (dispatch(setPrice(text)))}
@@ -111,14 +111,14 @@ const EditMode = ({navigation, route}) => {
                 maxLength = {7}
             />
             <TextInput 
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {editable} 
                 value = {status}
                 onChangeText = {(text)=> (dispatch(setStatus(text)))}
                 maxLength = {4}
             />
             <TextInput 
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {editable} 
                 value = {rating + ''}
                 onChangeText = {(text)=> (dispatch(setRating(text)))}
@@ -126,7 +126,7 @@ const EditMode = ({navigation, route}) => {
                 maxLength = {2}
             />
             <TextInput 
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {editable} 
                 value = {comment}
                 onChangeText = {(text)=> (dispatch(setComment(text)))}

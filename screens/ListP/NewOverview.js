@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, Button, FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { styles } from '../../style/styles';
+import { globalStyles } from '../../style/styles';
 import {fakeNewData} from '../../data/fakeNewData';
 import { setNewAll, setNewItems } from '../../redux/actions/newDataAction';
 import { useIsFocused } from '@react-navigation/core';
@@ -22,7 +22,7 @@ const NewOverview = ({navigation,route}) => {
 
     const renderItem = ({item, index}) => {
         return (
-            <View style = {styles.buttonSpace}>
+            <View style = {globalStyles.buttonSpace}>
                 <Button 
                     key = {index} 
                     title = {item.title}
@@ -37,7 +37,7 @@ const NewOverview = ({navigation,route}) => {
 
     const renderItemRemove = ({item, index}) => {
         return (
-            <View style = {styles.buttonSpace}>
+            <View style = {globalStyles.buttonSpace}>
                 <Button 
                     key = {index} 
                     title = {item.title}
@@ -53,15 +53,15 @@ const NewOverview = ({navigation,route}) => {
         );
     };
     return(
-        <View style = {styles.container}>
+        <View style = {globalStyles.container}>
             <Text>This is New Screen</Text>
             {remove && (
-                <View style = {styles.buttonSpace}>
+                <View style = {globalStyles.buttonSpace}>
                     <Button title ="Done" onPress = {() => {setRemove(false)}}/>
                 </View>
             )}
             {!remove && (
-                <View style = {styles.buttonSpace}>
+                <View style = {globalStyles.buttonSpace}>
                     <Button title ="ADD" onPress = {()=> (navigation.push("New Add Mode"))}/>
                     <Button title ="REMOVE" onPress = {() => (setRemove(true))}/>
                 </View>

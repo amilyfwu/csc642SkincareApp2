@@ -3,9 +3,7 @@ import {Text, TouchableOpacity } from 'react-native';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
-import Home from '../screens/Home';
-import Detail from '../screens/Detail';
-import Contact from '../screens/Contact';
+
 import SkinMood from '../screens/SkinMood';
 import RoutinePick from '../screens/DayAndNight/RoutinePick';
 import ListPick from '../screens/ListP/ListPick';
@@ -26,23 +24,6 @@ const screenOptionStyle = {
     headerStyle: {
         backgroundColor:"#bdb6ea",
     }
-}
-
-const MainStackNavigator = () => {
-    return(
-        <Stack.Navigator screenOptions = {screenOptionStyle}>
-            <Stack.Screen name = "Home" component= {Home}/>
-            <Stack.Screen name = "Detail" component= {Detail} />
-        </Stack.Navigator>
-    );
-}
-
-const ContactStackNavigator = () => {
-    return (
-        <Stack.Navigator screenOptions = {screenOptionStyle}>
-            <Stack.Screen name = "Contact" component = {Contact}/>
-        </Stack.Navigator>
-    );
 }
 
 const DayAndNightStackNavigator = () => {
@@ -138,4 +119,4 @@ const CalendarStackNavigator = () => {
         </Stack.Navigator>
     );
 }
-export {MainStackNavigator,ContactStackNavigator, DayAndNightStackNavigator, SkinMoodStackNavigator, ListStackNavigator, CalendarStackNavigator};
+export {DayAndNightStackNavigator, SkinMoodStackNavigator, ListStackNavigator, CalendarStackNavigator};

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, Button, TextInput } from 'react-native';
-import { styles } from '../../style/styles';
+import { globalStyles } from '../../style/styles';
 import {fakeNewData} from '../../data/fakeNewData';
 
 const NewAddMode = ({navigation,route}) => {
@@ -26,24 +26,24 @@ const NewAddMode = ({navigation,route}) => {
     };
 
     return(
-        <View style = {styles.container}>
+        <View style = {globalStyles.container}>
             <Text>new Edit mode</Text>
             <TextInput 
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {true} 
                 value = {title} 
                 onChangeText = {(text)=> (setTitle(text))}
                 maxLength = {30}
             />
             <TextInput 
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {true} 
                 value = {type} 
                 onChangeText = {(text)=> (setType(text))}
                 maxLength = {12}
             />
             <TextInput 
-                style = {styles.textBorder} 
+                style = {globalStyles.textBorder} 
                 editable = {true} 
                 value = {price + ''} 
                 onChangeText = {(text)=> (setPrice(text))}
