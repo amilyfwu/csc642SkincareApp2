@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View, Button, TouchableOpacity } from 'react-native';
 import { fakeMoodData } from '../data/fakeMoodData';
 import { globalStyles } from '../style/styles';
 
@@ -44,24 +44,37 @@ const SkinMood = ({navigation, route}) => {
 
     return(
         <View style = {globalStyles.container}>
-            <Text style = {globalStyles.font}>How is Your Skin Today?</Text>
+            <Text style = {globalStyles.font1}>How is Your Skin Today?</Text>
             <Text>{message ? 'Submitted' : 'Not Submitted' }</Text>
-            <Button 
-                title = "😎"
+
+            <TouchableOpacity 
+                style = {globalStyles.button1}
                 onPress = {() => handleMood(3)}
-            />
-            <Button
-                title = "🙂"
+            >
+                <Text style = {globalStyles.text1}>😎</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+                style = {globalStyles.button1}
                 onPress = {() => handleMood(2)}
-            />
-            <Button 
-                title = "😐"
+            >
+                <Text style = {globalStyles.text1}>🙂</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+                style = {globalStyles.button1}
                 onPress = {() => handleMood(1)}
-            />
-            <Button 
-                title = "🙁"
+            >
+                <Text style = {globalStyles.text1}>😐</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+                style = {globalStyles.button1}
                 onPress = {() => handleMood(0)}
-            />
+            >
+                <Text style = {globalStyles.text1}>🙁</Text>
+            </TouchableOpacity>
+            
         </View>
     );
 };

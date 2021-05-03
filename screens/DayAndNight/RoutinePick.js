@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import { globalStyles} from '../../style/styles';
 
 const RoutinePick = ({navigation}) => {
@@ -7,18 +7,27 @@ const RoutinePick = ({navigation}) => {
     //onPress = {()=>{navigation.navigate('Overview',{routine:"Night"})}}
     return(
         <View style = {globalStyles.container}>
-            <Button
-                title = "☀️"
+            <TouchableOpacity 
+                style = {globalStyles.button2}
                 onPress = {()=>{navigation.push("Overview",{day:true, night:false, routine:"Day"})}}
-            />
-            <Button 
-                title = "🌙"
+            >
+                <Text style = {globalStyles.text2}>☀️</Text>
+            </TouchableOpacity>
+            
+            <TouchableOpacity 
+                style = {globalStyles.button2}
                 onPress = {()=>{navigation.push("Overview",{day:false, night:true, routine:"Night"})}}
-            />
-            <Button 
-                title = "☀️🌙"
+            >
+                <Text style = {globalStyles.text2}>🌙</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+                style = {globalStyles.button2}
                 onPress = {()=>{navigation.push("Overview",{day:true, night:true, routine: "Both"})}}
-            />
+            >
+                <Text style = {globalStyles.text2}>☀️🌙</Text>
+            </TouchableOpacity>
+
         </View>
     );
 };
