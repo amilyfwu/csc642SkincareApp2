@@ -1,12 +1,14 @@
 //List of all products for routine
 //also need to add and remove products from the list
 import React from 'react';
-import { Text, View, Button, FlatList } from 'react-native';
+import { Text, View, Button, FlatList, TouchableOpacity } from 'react-native';
 import {fakeData} from "../../data/fakeData";
 import { globalStyles } from '../../style/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAll, setItems } from '../../redux/actions/dataAction';
 import { useIsFocused } from '@react-navigation/core';
+import {Ionicons} from '@expo/vector-icons';
+
 
 
 const Overview = ({navigation,route}) => {
@@ -42,16 +44,20 @@ const Overview = ({navigation,route}) => {
     const renderItem = ({item,index,separators}) => {
         //console.log(index,separators)
         //console.log("this is going to edit mode");
+        var title = item.title.length > 22 ? item.title.substring(0,22).concat('...') : item.title;
         return (
-            <View style = {globalStyles.buttonSpace}>
-                <Button 
-                    key = {index} 
-                    title = {item.title}
+            <View>
+                <TouchableOpacity
+                    key = {index}
                     onPress = {() => {
                         dispatch(setAll(item.title, item.type, item.price, item.status, item.rating, item.comment, item.day, item.night, item.dateEntered, item.id));
                         navigation.push("Edit Mode");
                     }}
-                />
+                    style = {globalStyles.listBorder}
+                >
+                    <Text style = {globalStyles.listText}>{title}</Text>
+                    <Ionicons name = "chevron-forward" size = {40} color = 'black' style = {globalStyles.arrowRight}></Ionicons>
+                </TouchableOpacity>
             </View>
         );
     };
@@ -60,11 +66,11 @@ const Overview = ({navigation,route}) => {
     const renderItemRemove = ({item,index,separators}) => {
         //console.log(index,separators)
         //console.log("this is going to delete");
+        var title = item.title.length > 22 ? item.title.substring(0,22).concat('...') : item.title;
         return (
-            <View style = {globalStyles.buttonSpace}>
-                <Button 
-                    key = {index} 
-                    title = {item.title}
+            <View>
+                <TouchableOpacity
+                    key = {index}
                     onPress = {() => {
                         console.log('remove item ' + item.title)
                         //finds the item
@@ -72,25 +78,43 @@ const Overview = ({navigation,route}) => {
                         const removeItem = fakeData.indexOf(findItem);
                         fakeData.splice(removeItem,1);
                     }}
-                />
+                    style = {globalStyles.listBorder}
+                >
+                    <Text style = {globalStyles.listText}>{title}</Text>
+                    <Ionicons name = "chevron-forward" size = {40} color = 'black' style = {globalStyles.arrowRight}></Ionicons>
+                </TouchableOpacity>
             </View>
         );
     };
 
     return (
-        <View style = {globalStyles.container}>
-            {route.params.day && <Text>This is day</Text>}
-            {route.params.night && <Text>This is Night</Text>}
-
+        <View>
+            {/* {route.params.day && <Text>This is day</Text>}
+            {route.params.night && <Text>This is Night</Text>} */}
             {remove && (
-                <View style = {globalStyles.buttonSpace}>
-                    <Button title ="Done" onPress = {() => {setRemove(false)}}/>
-                </View>
+                <TouchableOpacity
+                    style = {globalStyles.button2}
+                    onPress = {() => {setRemove(false)}}
+                    >
+                    <Text style = {globalStyles.text2}>Done</Text>
+                </TouchableOpacity>
             )}
             {!remove && (
-                <View style = {globalStyles.buttonSpace}>
-                    <Button title ="ADD" onPress = {()=> (navigation.push("Add Mode"))}/>
-                    <Button title ="REMOVE" onPress = {() => (setRemove(true))}/>
+                <View style = {globalStyles.plusminusButton}>
+                    <TouchableOpacity
+                        style = {globalStyles.plus}
+                        onPress = {()=> (navigation.push("Add Mode"))}
+                    >
+                        <Text style = {globalStyles.plusminusText}>+</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        style = {globalStyles.minus}
+                        onPress = {() => (setRemove(true))}
+                    >
+                        <Text style = {globalStyles.plusminusText}>-</Text>
+                    </TouchableOpacity>
+
                 </View>
             )}
             {!remove && (
@@ -99,6 +123,7 @@ const Overview = ({navigation,route}) => {
                     renderItem = {renderItem}
                     keyExtractor = {(item) => item.id}
                     extraData = {isFocused}
+                    contentContainerStyle = {globalStyles.listBottom}
                 />
             )}
             {remove && (
@@ -107,6 +132,7 @@ const Overview = ({navigation,route}) => {
                     renderItem = {renderItemRemove}
                     keyExtractor = {(item) => item.id}
                     extraData = {isFocused}
+                    contentContainerStyle = {globalStyles.listBottom}
                 />
             )}
             {/* <FlatList

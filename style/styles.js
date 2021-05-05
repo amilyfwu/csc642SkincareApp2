@@ -13,10 +13,6 @@ export const globalStyles = StyleSheet.create({
         padding: 10,
         width:'80%',
     },
-    buttonSpace: {
-      margin:'1%',
-      // padding: '10%',
-    },
     font1: {
       fontSize: 43,
       textAlign:"center",  
@@ -60,6 +56,56 @@ export const globalStyles = StyleSheet.create({
       fontSize: 25,
       textAlign:"center",
       textAlignVertical:"center",
+    },
+    buttonSpace: {
+      margin:'1%',
+      flexDirection:"row",
+      // padding: '10%',
+    },
+    plus: {
+      borderRadius: 25,
+      backgroundColor:"#a7eb87",
+      marginRight: 15,
+      marginVertical: 15,
+    },
+    minus:{
+      backgroundColor:"#f67070",
+      borderRadius: 25,
+      marginLeft: 15,
+      marginVertical: 15,
+      
+    },
+    plusminusText:{
+      fontSize:40,
+      height:50,
+      width:50,
+      textAlign:"center",
+      textAlignVertical:"center",
+    },
+    plusminusButton:{
+      flexDirection:"row",
+      paddingLeft:"32%",
+    },
+    listText: {
+      fontSize: 24,
+      width : '100%',
+      padding: 20,
+      //paddingRight: '12%',
+    },
+    listBorder: {
+      borderBottomWidth: 1,
+      borderBottomColor:'#c4c3d0',
+      flexDirection: "row",
+      
+    },
+    listBottom: {
+      //for scrolling all the way down
+      paddingBottom: "30%",
+    },
+    arrowRight: {
+      position: "absolute",
+      marginLeft: 310,
+      marginTop:15,
     }
     
 }); 
