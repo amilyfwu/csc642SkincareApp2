@@ -106,6 +106,55 @@ export const globalStyles = StyleSheet.create({
       position: "absolute",
       marginLeft: 310,
       marginTop:15,
-    }
+    },
+    detail: {
+      flexDirection: "row",
+      padding: 10,
+      width: "87%"
+    },
+    detailSwitches: {
+      //paddingRight: 100,
+      flexDirection: "row",
+      padding: 10,
+      width: "100%",
+      justifyContent: "center",
+    },
+    detailSwitch: {
+      flexDirection: "row",
+      padding: "5%",
+    },
+    detailComment: {
+      padding: 10,
+    },
+    detailText: {
+      fontSize: 22,
+      marginRight: 15,
+    },
+    detailTextComment: {
+      fontSize: 22,
+      marginBottom: 10,
+    },
+    detailTextInput: {
+      fontSize: 22,
+      backgroundColor: "#e5e5e5",
+      borderRadius: 10,
+      paddingHorizontal:10,
+      //width: "90%",
+    },
+    detailButton: {
+      borderRadius: 10,
+      backgroundColor:"#bdb6ea",
+      paddingVertical: 10,
+      paddingHorizontal: 25,
+      marginHorizontal: 30,
+    },
+    detailButtonText: {
+      fontSize: 22,
+    },
+    detailScroll : {
+      alignItems: "flex-start",
+      justifyContent: "flex-start",
+    },
+    
     
 }); 
