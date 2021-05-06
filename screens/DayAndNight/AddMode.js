@@ -1,6 +1,6 @@
 import React from 'react';
 import {globalStyles} from '../../style/styles' 
-import { View, Button, TextInput, Touchable, TouchableOpacity, Switch,Text } from 'react-native';
+import { View, Button, TextInput, TouchableWithoutFeedback, TouchableOpacity, Switch,Text, Keyboard, ScrollView } from 'react-native';
 import { fakeData } from '../../data/fakeData';
 
 
@@ -47,64 +47,125 @@ const AddMode = ({navigation, route}) => {
     };
 
     return(
-        <View>
-            <TextInput 
-                style = {globalStyles.textBorder} 
-                editable = {true} 
-                value = {title} 
-                onChangeText = {(text)=> (setTitle(text))}
-                maxLength = {30}
-            />
-            <TextInput 
-                style = {globalStyles.textBorder} 
-                editable = {true} 
-                value = {type} 
-                onChangeText = {(text)=> (setType(text))}
-                maxLength = {12}
-            />
-            <TextInput 
-                style = {globalStyles.textBorder} 
-                editable = {true} 
-                value = {price + ''} 
-                onChangeText = {(text)=> (setPrice(text))}
-                keyboardType = "numeric"
-                maxLength = {7}
-            />
-            <TextInput 
-                style = {globalStyles.textBorder} 
-                editable = {true} 
-                value = {status} 
-                onChangeText = {(text)=> (setStatus(text))}
-                maxLength = {4}
-            />
-            <TextInput 
-                style = {globalStyles.textBorder} 
-                editable = {true} 
-                value = {rating + ''} 
-                onChangeText = {(text)=> (setRating(text))}
-                keyboardType = "number-pad"
-                maxLength = {2}
-            />
-            <TextInput 
-                style = {globalStyles.textBorder} 
-                editable = {true} 
-                value = {comment} 
-                onChangeText = {(text)=> (setComment(text))}
-                multiline = {true}
-                numberOfLines = {10}
-            />
-            <Text>Day{day+''}</Text>
-            <Switch onValueChange = {(val)=>(setDay(val))} value = {day} />
-            <Text>Night</Text>
-            <Switch onValueChange = {(val)=>(setNight(val))} value = {night}/>
-            <Button 
-                title = "Save" 
-                onPress = {() => {
-                    addItem();
-                    reset();
-                }}/> 
-            <Button title = "Cancel" onPress = {() => {navigation.goBack()}}/> 
-        </View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible ={false}>
+            <ScrollView contentContainerStyle = {globalStyles.detailScroll}>
+                <View style = {globalStyles.detail}>
+                    <Text style = {globalStyles.detailText}>Title</Text>
+                    <TextInput 
+                        style = {globalStyles.detailTextInputLong} 
+                        editable = {true} 
+                        value = {title} 
+                        onChangeText = {(text)=> (setTitle(text))}
+                        maxLength = {70}
+                        multiline = {true}
+                    />
+                </View>
+
+                <View style = {globalStyles.detail}>
+                    <Text style = {globalStyles.detailText}>Type</Text>
+                    <TextInput 
+                        style = {globalStyles.detailTextInputLong} 
+                        editable = {true} 
+                        value = {type} 
+                        onChangeText = {(text)=> (setType(text))}
+                        maxLength = {12}
+                    />
+                </View>
+                
+                <View style = {globalStyles.detail}>
+                    <Text style = {globalStyles.detailText}>Price</Text>
+                    <TextInput 
+                        style = {globalStyles.detailTextInputLong} 
+                        editable = {true} 
+                        value = {price + ''} 
+                        onChangeText = {(text)=> (setPrice(text))}
+                        keyboardType = "numeric"
+                        maxLength = {7}
+                    />
+                </View>
+                
+                <View style = {globalStyles.detail}>
+                    <Text style = {globalStyles.detailText}>Status</Text>
+                    <TextInput 
+                        style = {globalStyles.detailTextInputLong} 
+                        editable = {true} 
+                        value = {status} 
+                        onChangeText = {(text)=> (setStatus(text))}
+                        maxLength = {4}
+                    />
+                </View>
+
+                
+                <View style = {globalStyles.detail}>
+                    <Text style = {globalStyles.detailText}>Rating</Text>
+                    <TextInput 
+                        style = {globalStyles.detailTextInputLong} 
+                        editable = {true} 
+                        value = {rating + ''} 
+                        onChangeText = {(text) => (setRating(text))}
+                        keyboardType = "number-pad"
+                        maxLength = {2}
+                    />
+                </View>
+
+                
+                <View style = {globalStyles.detailComment}>
+                    <Text style = {globalStyles.detailTextComment}>Comment</Text>
+                    <TextInput 
+                        style = {globalStyles.detailTextInputLongComment} 
+                        editable = {true} 
+                        value = {comment} 
+                        onChangeText = {(text)=> (setComment(text))}
+                        multiline = {true}
+                        numberOfLines = {10}
+                        keyboardType = "default"
+                        returnKeyType = "done"
+                        onSubmitEditing = {() => Keyboard.dismiss()}
+                        blurOnSubmit = {true}
+                    />
+                </View>
+
+                
+                <View style = {globalStyles.detailSwitches}>
+                    <View style = {globalStyles.detailSwitch}>
+                        <Text style = {globalStyles.detailText}>Day</Text>
+                        <Switch 
+                            onValueChange = {(val)=>(setDay(val))} 
+                            value = {day} 
+                        />
+                    </View>
+
+                    <View style = {globalStyles.detailSwitch}>
+                        <Text style = {globalStyles.detailText}>Night</Text>
+                        <Switch 
+                            onValueChange = {(val)=>(setNight(val))} 
+                            value = {night}
+                        />
+                    </View>
+                
+                </View>
+
+                <View style = {globalStyles.detailSwitches}>
+                    <TouchableOpacity
+                        style = {globalStyles.detailButton}
+                        onPress = {() => {
+                            addItem();
+                            reset();
+                        }}
+                    >
+                        <Text style = {globalStyles.detailButtonText}>Save</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        style = {globalStyles.detailButton}
+                        onPress = {() => {navigation.goBack()}}
+                    >
+                        <Text style = {globalStyles.detailButtonText}>Cancel</Text>
+                    </TouchableOpacity>
+                </View>
+                
+            </ScrollView>
+        </TouchableWithoutFeedback>
     );
 }
 

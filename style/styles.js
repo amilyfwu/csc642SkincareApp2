@@ -125,6 +125,8 @@ export const globalStyles = StyleSheet.create({
     },
     detailComment: {
       padding: 10,
+      //makes the comment grey line longer
+      width: "100%",
     },
     detailText: {
       fontSize: 22,
@@ -141,6 +143,21 @@ export const globalStyles = StyleSheet.create({
       paddingHorizontal:10,
       //width: "90%",
     },
+    detailTextInputLong:{
+      fontSize: 22,
+      backgroundColor: "#e5e5e5",
+      borderRadius: 10,
+      paddingHorizontal:10,
+      width: "90%",
+    },
+    detailTextInputLongComment:{
+      fontSize: 22,
+      backgroundColor: "#e5e5e5",
+      borderRadius: 10,
+      paddingHorizontal:10,
+      //width: "90%",
+    },
+    
     detailButton: {
       borderRadius: 10,
       backgroundColor:"#bdb6ea",
