@@ -100,7 +100,7 @@ export const globalStyles = StyleSheet.create({
     },
     listBottom: {
       //for scrolling all the way down
-      paddingBottom: "30%",
+      paddingBottom: "50%",
     },
     arrowRight: {
       position: "absolute",
