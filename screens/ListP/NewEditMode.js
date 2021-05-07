@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Button, TextInput } from 'react-native';
+import { Text, View, Button, TextInput, TouchableWithoutFeedback, Keyboard, TouchableOpacity, ScrollView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { globalStyles } from '../../style/styles';
 import {fakeNewData} from '../../data/fakeNewData';
@@ -73,78 +73,108 @@ const NewEditMode = ({navigation}) => {
     };
 
     return(
-        <View style = {globalStyles.container}>
-            <Text>new Edit mode</Text>
-            
-            <TextInput 
-                style = {globalStyles.textBorder} 
-                editable = {editable} 
-                value = {title}
-                onChangeText = {(text)=> (dispatch(setNewTitle(text)))}
-                maxLength = {30}
-            />
-            <TextInput
-                style = {globalStyles.textBorder} 
-                editable = {editable} 
-                value = {type}
-                onChangeText = {(text)=> (dispatch(setNewType(text)))}
-                maxLength = {12}
-             />
-            <TextInput 
-                style = {globalStyles.textBorder} 
-                editable = {editable} 
-                value = {price + ''}
-                onChangeText = {(text)=> (dispatch(setNewPrice(text)))}
-                keyboardType = "numeric"
-                maxLength = {7}
-            />
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible ={false}>
+            <ScrollView>
+                <View style = {globalStyles.detail}>
+                    <Text style = {globalStyles.detailText}>Title</Text>
+                    <TextInput 
+                        style = {globalStyles.detailTextInput}
+                        editable = {editable} 
+                        value = {title}
+                        onChangeText = {(text)=> (dispatch(setNewTitle(text)))}
+                        maxLength = {70}
+                        multiline = {true}
 
-            {!editable && (
-                <View>
-                    <Button 
-                        title = "Edit" 
-                        onPress = {() => (setEditable(true))}
-                    />
-                    <Button
-                        title = "Add to ☀️"
-                        onPress = {() => {
-                            moveData("☀️");
-                            navigation.goBack();
-                        }}
-                    />
-                    <Button
-                        title = "Add to 🌙"
-                        onPress = {() => {
-                            moveData("🌙");
-                            navigation.goBack();
-                        }}
-                    />
-                    <Button
-                        title = "Add to ☀️🌙"
-                        onPress = {() =>{
-                            moveData("☀️🌙");
-                            navigation.goBack();
-                        }}
-                    />
-                    
-                </View>
-            )}
-            {editable && (
-                <View>
-                    <Button 
-                        title = "Save" 
-                        onPress = {() => {
-                            editData();
-                            navigation.goBack();
-                        }}
-                    /> 
-                    <Button 
-                        title = "Cancel" 
-                        onPress = {() => (navigation.goBack())}
                     />
                 </View>
-            )}
-        </View>
+                
+                <View style = {globalStyles.detail}>
+                    <Text style = {globalStyles.detailText}>Type</Text>
+                    <TextInput
+                        style = {globalStyles.detailTextInput}
+                        editable = {editable} 
+                        value = {type}
+                        onChangeText = {(text)=> (dispatch(setNewType(text)))}
+                        maxLength = {12}
+                    />
+                </View>
+                
+                <View style = {globalStyles.detail}>
+                    <Text style = {globalStyles.detailText}>Price</Text>
+                    <TextInput 
+                        style = {globalStyles.detailTextInput}
+                        editable = {editable} 
+                        value = {price + ''}
+                        onChangeText = {(text)=> (dispatch(setNewPrice(text)))}
+                        keyboardType = "numeric"
+                        maxLength = {7}
+                    />
+                </View>
+
+                {!editable && (
+                    <View style = {globalStyles.detailNew}>
+                
+                        <TouchableOpacity
+                            style = {globalStyles.detailNewButton2}
+                            onPress = {() => (setEditable(true))}
+                        >
+                            <Text style = {globalStyles.detailButtonText}>Edit</Text>
+                        </TouchableOpacity>
+                        
+                        <TouchableOpacity
+                            style = {globalStyles.detailNewButton}
+                            onPress = {() => {
+                                moveData("☀️");
+                                navigation.goBack();
+                            }}
+                        >
+                            <Text style = {globalStyles.detailButtonText}>Add to ☀️</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            style = {globalStyles.detailNewButton}
+                            onPress = {() => {
+                                moveData("🌙");
+                                navigation.goBack();
+                            }}
+                        >
+                            <Text style = {globalStyles.detailButtonText}>Add to 🌙</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            style = {globalStyles.detailNewButton}
+                            onPress = {() =>{
+                                moveData("☀️🌙");
+                                navigation.goBack();
+                            }}
+                        >
+                            <Text style = {globalStyles.detailButtonText}>Add to ☀️🌙</Text>
+                        </TouchableOpacity>
+                    </View>
+                )}
+                {editable && (
+                    <View style = {globalStyles.detailSwitches}>
+                        <TouchableOpacity
+                            style = {globalStyles.detailButton}
+                            onPress = {() => {
+                                editData();
+                                navigation.goBack();
+                            }}
+                        >
+                            <Text style = {globalStyles.detailButtonText}>Save</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            style = {globalStyles.detailButton}
+                            onPress = {() => (navigation.goBack())}
+                        >
+                            <Text style = {globalStyles.detailButtonText}>Cancel</Text>
+                        </TouchableOpacity>
+                    </View>
+                )}
+            </ScrollView>
+        </TouchableWithoutFeedback>
+
     );
          
 };

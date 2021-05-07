@@ -112,6 +112,7 @@ export const globalStyles = StyleSheet.create({
       padding: 10,
       width: "87%"
     },
+    
     detailSwitches: {
       //paddingRight: 100,
       flexDirection: "row",
@@ -167,11 +168,29 @@ export const globalStyles = StyleSheet.create({
     },
     detailButtonText: {
       fontSize: 22,
+      textAlign:"center",
+      textAlignVertical:"center",
     },
     detailScroll : {
       alignItems: "flex-start",
       justifyContent: "flex-start",
     },
-    
-    
+    detailNew: {
+      justifyContent:"center",
+      alignItems: "center",
+    },
+    detailNewButton: {
+      borderRadius: 10,
+      backgroundColor:"#bdb6ea",
+      paddingVertical: "6%",
+      marginVertical: "3%",
+      width:"70%"
+    },
+    detailNewButton2: {
+      borderRadius: 10,
+      backgroundColor:"#bdb6ea",
+      paddingVertical: 10,
+      paddingHorizontal: 25,
+      marginVertical: "3%",
+    },
 }); 
