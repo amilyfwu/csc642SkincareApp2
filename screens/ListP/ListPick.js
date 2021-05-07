@@ -10,7 +10,7 @@ const ListPick = ({navigation}) => {
                 style = {globalStyles.button3}
                 onPress = {() => navigation.push("New")}
             >
-                <Text style = {globalStyles.text3}>New Products</Text>
+                <Text style = {globalStyles.text3}>New Products 🎁</Text>
             </TouchableOpacity>
 
             <TouchableOpacity 

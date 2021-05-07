@@ -23,42 +23,38 @@ const NewOverview = ({navigation,route}) => {
 
     const renderItem = ({item, index}) => {
         var title = item.title.length > 22 ? item.title.substring(0,22).concat('...') : item.title;
-        return (
-            <View>
-                <TouchableOpacity
-                    style = {globalStyles.listBorder}
-                    key = {index} 
-                    onPress = {() => {
-                        dispatch(setNewAll(item.title, item.type, item.price, item.id));
-                        navigation.push("New Edit Mode");
-                    }}
-                >
-                    <Text style = {globalStyles.listText}>{title}</Text>
-                    <Ionicons name = "chevron-forward" size = {40} color = 'black' style = {globalStyles.arrowRight}></Ionicons>
-                </TouchableOpacity>
-            </View>
+        return (  
+            <TouchableOpacity
+                style = {globalStyles.listBorder}
+                key = {index} 
+                onPress = {() => {
+                    dispatch(setNewAll(item.title, item.type, item.price, item.id));
+                    navigation.push("New Edit Mode");
+                }}
+            >
+                <Text style = {globalStyles.listText}>{title}</Text>
+                <Ionicons name = "chevron-forward" size = {40} color = 'black' style = {globalStyles.arrowRight}></Ionicons>
+            </TouchableOpacity>   
         );
     };
 
     const renderItemRemove = ({item, index}) => {
         var title = item.title.length > 22 ? item.title.substring(0,22).concat('...') : item.title;
         return (
-            <View>
-                <TouchableOpacity
-                    style = {globalStyles.listBorder}
-                    key = {index} 
-                    onPress = {() => {
-                        console.log('remove item ' + item.title)
-                        //finds the item
-                        const findItem =  fakeNewData.find(element => element.id === item.id)
-                        const removeItem = fakeNewData.indexOf(findItem);
-                        fakeNewData.splice(removeItem,1);
-                    }}
-                >
-                    <Text style = {globalStyles.listText}>{title}</Text>
-                    <Ionicons name = "chevron-forward" size = {40} color = 'black' style = {globalStyles.arrowRight}></Ionicons>
-                </TouchableOpacity>
-            </View>
+            <TouchableOpacity
+                style = {globalStyles.listBorder}
+                key = {index} 
+                onPress = {() => {
+                    console.log('remove item ' + item.title)
+                    //finds the item
+                    const findItem =  fakeNewData.find(element => element.id === item.id)
+                    const removeItem = fakeNewData.indexOf(findItem);
+                    fakeNewData.splice(removeItem,1);
+                }}
+            >
+                <Text style = {globalStyles.listText}>{title}</Text>
+                <Ionicons name = "chevron-forward" size = {40} color = 'black' style = {globalStyles.arrowRight}></Ionicons>
+            </TouchableOpacity>    
         );
     };
     return(
@@ -91,6 +87,9 @@ const NewOverview = ({navigation,route}) => {
                     </TouchableOpacity>
                 </View>
             )}
+            <View style = {globalStyles.listBorder}>
+                <Text style = {globalStyles.listText}>New Products 🎁</Text>
+            </View>
             {!remove && (
                     <FlatList
                         data = {items}
