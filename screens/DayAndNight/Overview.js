@@ -6,7 +6,7 @@ import {fakeData} from "../../data/fakeData";
 import { globalStyles } from '../../style/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAll, setItems } from '../../redux/actions/dataAction';
-import { useIsFocused } from '@react-navigation/core';
+import { useIsFocused } from '@react-navigation/native';
 import {Ionicons} from '@expo/vector-icons';
 
 
@@ -38,7 +38,7 @@ const Overview = ({navigation,route}) => {
         // console.log("this is items", items);
         dispatch(setItems(fakeData));
         //filteredItems = items.filter((item) => route.params.day === item.day || route.params.night === item.night);
-    },[]);//isFocused was here, I dont think it affect the items update
+    },[isFocused, dispatch]);//isFocused was here, I dont think it affect the items update
     
     //default render items
     const renderItem = ({item,index,separators}) => {
@@ -70,6 +70,7 @@ const Overview = ({navigation,route}) => {
         return (
             <View>
                 <TouchableOpacity
+                    style = {globalStyles.listBorder}
                     key = {index}
                     onPress = {() => {
                         console.log('remove item ' + item.title)
@@ -78,7 +79,6 @@ const Overview = ({navigation,route}) => {
                         const removeItem = fakeData.indexOf(findItem);
                         fakeData.splice(removeItem,1);
                     }}
-                    style = {globalStyles.listBorder}
                 >
                     <Text style = {globalStyles.listText}>{title}</Text>
                     <Ionicons name = "chevron-forward" size = {40} color = 'black' style = {globalStyles.arrowRight}></Ionicons>
@@ -92,12 +92,15 @@ const Overview = ({navigation,route}) => {
             {/* {route.params.day && <Text>This is day</Text>}
             {route.params.night && <Text>This is Night</Text>} */}
             {remove && (
-                <TouchableOpacity
-                    style = {globalStyles.button2}
-                    onPress = {() => {setRemove(false)}}
-                    >
-                    <Text style = {globalStyles.text2}>Done</Text>
-                </TouchableOpacity>
+                <View style = {globalStyles.detailSwitches}>
+                    <TouchableOpacity
+                        style = {globalStyles.detailButton}
+                        onPress = {() => {setRemove(false)}}
+                        >
+                        <Text style = {globalStyles.detailButtonText}>Done</Text>
+                    </TouchableOpacity>
+                </View>
+                
             )}
             {!remove && (
                 <View style = {globalStyles.plusminusButton}>

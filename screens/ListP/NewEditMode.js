@@ -47,7 +47,7 @@ const NewEditMode = ({navigation}) => {
                 day = true;
                 night = true;
                 break;
-        };
+        }
 
         const defaultData = {
             'title': title,

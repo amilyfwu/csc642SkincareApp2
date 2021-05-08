@@ -39,8 +39,8 @@ const BottomTabNavigator = () => {
                                     <Ionicons name = {iconName2} size = {size} color={color}/>
                                 </View>
                             );
-                            iconName = focused ? 'sunny':'sunny-outline';
-                            break;
+                            //iconName = focused ? 'sunny':'sunny-outline';
+                            //break;
                     }
                     return <Ionicons name = {iconName} size = {size} color={color}/>;
                 },

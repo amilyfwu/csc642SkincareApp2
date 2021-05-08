@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { globalStyles } from '../../style/styles';
 import {fakeNewData} from '../../data/fakeNewData';
 import { setNewAll, setNewItems } from '../../redux/actions/newDataAction';
-import { useIsFocused } from '@react-navigation/core';
+import { useIsFocused } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 
 
@@ -19,7 +19,7 @@ const NewOverview = ({navigation,route}) => {
 
     React.useEffect(() => {
         dispatch(setNewItems(fakeNewData));
-    },[]);
+    },[isFocused, dispatch]);
 
     const renderItem = ({item, index}) => {
         var title = item.title.length > 22 ? item.title.substring(0,22).concat('...') : item.title;

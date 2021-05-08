@@ -23,7 +23,7 @@ const SkinMood = ({navigation, route}) => {
             case 3:
                 mood = 3;              
                 break;    
-        };
+        }
 
         const tempDate = Date.now();
         const today = new Date(tempDate).toLocaleDateString();
