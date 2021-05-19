@@ -26,10 +26,13 @@ const SkinMood = ({navigation, route}) => {
         }
 
         const tempDate = Date.now();
-        const today = new Date(tempDate).toLocaleDateString();
+        //const today = new Date(tempDate).toLocaleDateString();
+        const today2 = new Date(tempDate).toISOString().substring(0,10);
+        //console.log(today2)
+        
         const moodData = {
             'mood': mood,
-            'date': today,
+            'date': today2,
         };
         const findItem = fakeMoodData.find(element => element.date === moodData.date);
 
