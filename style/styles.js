@@ -193,4 +193,8 @@ export const globalStyles = StyleSheet.create({
       paddingHorizontal: 25,
       marginVertical: "3%",
     },
+    calendarEmoji: {
+      fontSize: 150,
+      textAlign:"center", 
+    },
 }); 
